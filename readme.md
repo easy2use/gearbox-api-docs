@@ -74,7 +74,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN" -H 'Content-Type: application/json
 URL: https://api.gearbox.com.au/public/v1/prestarts
 Method: POST
 
-```JSON
+```
 prestarts: [{
   fleet_number: "", // string, must match existing fleet number in system, required
   completed_at: "", // datetime, required
@@ -87,11 +87,11 @@ prestarts: [{
   latitude: "", // float, not required
   longitude: "", // float, not required
   notes: "", // string, maximum 500 characters, not required
-  items: { // required
+  items: [{ // required
     item_question: "", // string, maximum 256 characters, required
     passed: "", // boolean; ‘true’ or ‘false’, required
     fail_reason: "" // string, maximum 256 characters, not required
-  }
+  }]
 }]
 ```
 
@@ -105,7 +105,7 @@ Status Codes:
 URL: https://api.gearbox.com.au/public/v1/fault_reports
 Method: POST
 
-```JSON
+```
 fault_reports: [{
   fleet_number: “”, // string, must match existing fleet number in system, required
   created_at: “”, // datetime, required
