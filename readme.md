@@ -77,7 +77,7 @@ Method: POST
 ```
 prestarts: [{
   fleet_number: "", // string, must match existing fleet number in system, required
-  completed_at: "", // datetime, required
+  completed_at: "", // datetime, required, format: yyyy-mm-dd hh:mm:ss
   employee: "", // string, required. If a match is not found then it is stored as a string
   odometer: "", // integer, not required
   hours: "", // integer, not required
@@ -108,7 +108,7 @@ Method: POST
 ```
 fault_reports: [{
   fleet_number: “”, // string, must match existing fleet number in system, required
-  created_at: “”, // datetime, required
+  created_at: “”, // datetime, required, format: yyyy-mm-dd hh:mm:ss
   employee: “”, // string, required. If a match is not found then it is stored as a string
   fail_reason: “”, // string, maximum 256 characters, not required
   notes: “” // string, maximum 500 characters, not required
