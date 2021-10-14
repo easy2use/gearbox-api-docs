@@ -10,7 +10,7 @@ You will need an active administrator account for Gearbox to accept the connecti
 
 1. Grab an (OAuth 2.0 library)[https://oauth.net/code/].
 
-2. Configure your library with your `client_id`, `client_secret`, `redirect_uri` and `state`. Tell the client to use https://api.gearbox.com.au/oauth/authorize to request authorisation.
+2. Configure your library with your `client_id`, `client_secret`, `redirect_uri` and `state`. Tell the client to use https://api.gearbox.com.au/oauth/authorize to request authorisation (if required).
 
 ```Ruby
 oauth_client = OAuth2::Client.new(
