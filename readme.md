@@ -2,9 +2,9 @@
 
 Gearbox is REST-style API that uses JSON for serialization and OAuth 2.0 for authorisation. To get started you must first contact Gearbox Support to request your `client_id` and `client_secret` to successfully authorise your application.
 
-[Authorisation](#Authorisation)
-[Making a request](#Making-a-request)
-[Handling Errors](#Handling-errors)
+- [Authorisation](#Authorisation)
+- [Making a request](#Making-a-request)
+- [Handling Errors](#Handling-errors)
 
 
 ## Authorisation
