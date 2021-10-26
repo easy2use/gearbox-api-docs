@@ -6,7 +6,6 @@ Gearbox is REST-style API that uses JSON for serialization and OAuth 2.0 for aut
 - [Making a request](#Making-a-request)
 - [Handling Errors](#Handling-errors)
 
-
 ## Authorisation
 
 As mentioned above, to authenticate you must use OAuth 2.0. A token can be retrieved through one of the following methods:
@@ -14,12 +13,12 @@ As mentioned above, to authenticate you must use OAuth 2.0. A token can be retri
 - [Authorisation Code Grant](authorisation/authorisation_code_grant.md)
 - [Client Credentials Grant](authorisation/client_credentials_grant.md)
 
-
 ## Making a request
 
 All URLs start with https://api.gearbox.com.au/public/. URLs are HTTPS only.
 
 To make a request for all endpoints you must include the OAuth 2.0 access token in your request header:
+
 ```shell
 curl -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
@@ -28,8 +27,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 
 - [Prestarts](endpoints/prestarts.md)
 - [Fault Reports](endpoints/fault_reports.md)
-- [Service](endpoints/service.md)
-
+- [Services](endpoints/services.md)
 
 ## Handling errors
 
