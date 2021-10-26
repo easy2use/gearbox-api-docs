@@ -39,7 +39,7 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ### Response status codes:
 
-- 200: OK
+- 201: Created
 - 400: Bad Request
 - 401: Unauthorised
 - 403: Forbidden
