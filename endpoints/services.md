@@ -1,7 +1,7 @@
 # Services
 
-- [Create services](#Create services)
-- [Create service documents](#Create service documents)
+- [Create services](#create-services)
+- [Create service documents](#create-service-documents)
 
 ## Create services
 
