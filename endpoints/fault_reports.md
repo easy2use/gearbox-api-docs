@@ -18,11 +18,11 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  fleet_number: “”, // string, must match existing fleet number in system, required
-  created_at: “”, // datetime, required, format: yyyy-mm-dd hh:mm:ss
-  employee: “”, // string, required. If a match is not found then it is stored as a string
-  fail_reason: “”, // string, maximum 256 characters, not required
-  notes: “” // string, maximum 500 characters, not required
+  fleet_number: “”, // string, required, must match existing fleet number in system
+  created_at: “”,   // datetime, required, format: yyyy-mm-dd hh:mm:ss
+  employee: “”,     // string, required, if a match is not found then it is stored as a string
+  fail_reason: “”,  // string, optional, maximum 256 characters
+  notes: “”         // string, optional, maximum 500 characters
 }
 ```
 
@@ -35,6 +35,14 @@ Authorization: Bearer $ACCESS_TOKEN
 - 413: Request Entity Too Large
 - 415: Unsupported media type
 - 422: Unprocessable Entity
+
+### 201 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
 
 ###### Example
 

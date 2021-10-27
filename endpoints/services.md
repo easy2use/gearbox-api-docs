@@ -21,36 +21,40 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  fleet_number: "", // string, must match existing fleet number in system
-  registration: "", // string, must match existing registration in system
-  service_type: "", // character, required, values allowed: A, B, C, D, E
-  date_open: "", // date, required, format: 'yyyy-mm-dd'
-  odometer_scheduled: "", // integer, not required
-  hours_scheduled: "", // integer, not required
-  notes: "", // string, maximum 500 characters, not required
-  repairer_notes: "", // string, maximum 500 characters, not required
-  closed: "", // boolean, required
-  date_closed: "", // date, required if closed, format: 'yyyy-mm-dd'
-  hours_closed: "", // integer, not required
-  odometer_closed: "" // integer, not required
-  cost: "",
-  purchase_order: "", // string, maximum 20 characters, not required
-  invoice: "", // string, maximum 45 characters, not required
-  invoice_date: "", // date, optional, format: 'yyyy-mm-dd'
-  location: "", // string, maximum 50 characters, not required
-  date_scheduled: "", // datetime, optional, format: yyyy-mm-dd hh:mm:ss
-  date_scheduled_end: "", // datetime, optional, format: yyyy-mm-dd hh:mm:ss
-  site: "", // string, optional
-  general_ledger_code: "", // string, optional
-  parts: [{
-    part_number: "", // string, optional
-    quantity: "",  // string, optional
-    each: "" // string, optional
-  }],
-  repairers: [{
-    name: "", // string, optional
-    code: "" // string, optional
-  }]
+  fleet_number: "",         // string, required if registration is blank, must match existing fleet number in the system
+  registration: "",         // string, required if fleet_number is blank, must match existing registration in the system
+  service_type: "",         // character, required, values allowed: A, B, C, D, E
+  date_open: "",            // date, required, format: 'yyyy-mm-dd'
+  odometer_scheduled: "",   // integer, optional
+  hours_scheduled: "",      // integer, optional
+  notes: "",                // string, optional, maximum 500 characters
+  repairer_notes: "",       // string, optional, maximum 500 characters
+  closed: "",               // boolean, required, true or false
+  date_closed: "",          // date, required if closed is true, format: 'yyyy-mm-dd'
+  hours_closed: "",         // integer, optional
+  odometer_closed: ""       // integer, optional
+  cost: "",                 // float, optional, format: 100.00
+  purchase_order: "",       // string, optional, maximum 20 characters
+  invoice: "",              // string, optional, maximum 45 characters
+  invoice_date: "",         // date, optional, format: 'yyyy-mm-dd'
+  location: "",             // string, optional, maximum 50 characters
+  date_scheduled: "",       // datetime, optional, format: yyyy-mm-dd hh:mm
+  date_scheduled_end: "",   // datetime, optional, format: yyyy-mm-dd hh:mm
+  site: "",                 // string, optional, if a site match is not found than an error is thrown
+  general_ledger_code: "",  // string, optional, if a general ledger code match is not found than an error is thrown
+  parts: [                  // array, optional, size must be less than or equal to 5
+    {
+      part_number: "",      // string, required, if a part match is not found than an error is thrown
+      quantity: "",         // float, optional, format: 1.00
+      each: ""              // float, optional, format: 5.50
+    }
+  ],
+  repairers: [              // array, optional, size must be less than or equal to 10
+    {
+      name: "",             // string, required if code is blank, must match existing repairers name in the system
+      code: ""              // string, required if name is blank, must match existing repairers code in the system
+    }
+  ]
 }
 ```
 
@@ -63,6 +67,59 @@ Authorization: Bearer $ACCESS_TOKEN
 - 413: Request Entity Too Large
 - 415: Unsupported media type
 - 422: Unprocessable Entity
+
+### 201 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
+
+###### Example
+
+```
+curl --location --request POST 'https://api.gearbox.com.au/public/v1/services' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+    "fleet_number": "PM01",
+    "registration": "ABC123",
+    "service_type": "A",
+    "date_open": "2021-01-01",
+    "odometer_scheduled": 100,
+    "hours_scheduled": 150,
+    "notes": "Windscreen wipers are loose",
+    "repairer_notes": "Replaced the windscreen wipers",
+    "closed": false,
+    "date_closed": "",
+    "hours_closed": "",
+    "odometer_closed": "",
+    "cost": 0.00,
+    "purchase_order": "Purchase order #123",
+    "invoice": "Invoice #123",
+    "invoice_date": "2021-01-02",
+    "location": "Sydney",
+    "date_scheduled": "2021-01-02 13:00",
+    "date_scheduled_end": "2021-01-02 15:00",
+    "site": "Sydney",
+    "general_ledger_code": "5000-05",
+    "parts": [
+        {
+            "part_number": "Windscreen wiper",
+            "quantity": 1,
+            "each": 11.50
+        }
+    ],
+    "repairers": [
+        {
+            "name": "Inhouse mechanic",
+            "code": ""
+        }
+    ]
+}'
+```
 
 ## Create service documents
 
@@ -94,6 +151,14 @@ Authorization: Bearer $ACCESS_TOKEN
 - 413: Request Entity Too Large
 - 415: Unsupported media type
 - 422: Unprocessable Entity
+
+### 201 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
 
 ###### Example
 

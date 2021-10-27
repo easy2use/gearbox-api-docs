@@ -18,22 +18,24 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  fleet_number: "", // string, must match existing fleet number in system, required
-  completed_at: "", // datetime, required, format: yyyy-mm-dd hh:mm:ss
-  employee: "", // string, required. If a match is not found then it is stored as a string
-  odometer: "", // integer, not required
-  hours: "", // integer, not required
-  spare1: "", // string, maximum 256 characters, not required
-  spare2: "", // string, maximum 256 characters, not required
-  spare3: "", // string, maximum 256 characters, not required
-  latitude: "", // float, not required
-  longitude: "", // float, not required
-  notes: "", // string, maximum 500 characters, not required
-  items: [{ // required, size must be less than 50
-    item_question: "", // string, maximum 256 characters, required
-    passed: "", // boolean; ‘true’ or ‘false’, required
-    fail_reason: "" // string, maximum 256 characters, not required
-  }]
+  fleet_number: "",       // string, required, must match existing fleet number in system
+  completed_at: "",       // datetime, required, format: yyyy-mm-dd hh:mm:ss
+  employee: "",           // string, required, if a match is not found then it is stored as a string
+  odometer: "",           // integer, optional
+  hours: "",              // integer, optional
+  spare1: "",             // string, optional, maximum 256 characters
+  spare2: "",             // string, optional, maximum 256 characters
+  spare3: "",             // string, optional, maximum 256 characters
+  latitude: "",           // float, optional
+  longitude: "",          // float, optional
+  notes: "",              // string, optional, maximum 500 characters
+  items: [                // array, required, size must be less than or equal to 50
+    {
+      item_question: "",  // string, required, maximum 256 characters
+      passed: "",         // boolean, required, true or false
+      fail_reason: ""     // string, optional, maximum 256 characters
+    }
+  ]
 }
 ```
 
@@ -46,6 +48,14 @@ Authorization: Bearer $ACCESS_TOKEN
 - 413: Request Entity Too Large
 - 415: Unsupported media type
 - 422: Unprocessable Entity
+
+### 201 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
 
 ###### Example
 
@@ -63,7 +73,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/prestarts' 
   "odometer": 5000,
   "items": [
       {
-          "item_question": "Check registration label is in tact and current",
+          "item_question": "Check registration label is intact and current",
           "passed": true,
           "fail_reason": ""
       },
