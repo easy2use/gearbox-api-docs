@@ -27,7 +27,7 @@ Authorization: Bearer $ACCESS_TOKEN
   date_open: "",            // date, required, format: 'yyyy-mm-dd'
   odometer_scheduled: "",   // integer, optional
   hours_scheduled: "",      // integer, optional
-  notes: "",                // string, optional, maximum 500 characters
+  jobcard_notes: "",        // string, optional, maximum 500 characters
   repairer_notes: "",       // string, optional, maximum 500 characters
   closed: "",               // boolean, required, true or false
   date_closed: "",          // date, required if closed is true, format: 'yyyy-mm-dd'
@@ -90,7 +90,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/services' \
     "date_open": "2021-01-01",
     "odometer_scheduled": 100,
     "hours_scheduled": 150,
-    "notes": "Windscreen wipers are loose",
+    "jobcard_notes": "Windscreen wipers are loose",
     "repairer_notes": "Replaced the windscreen wipers",
     "closed": false,
     "date_closed": "",
@@ -130,6 +130,7 @@ Please note:
 - The request body should be the file's raw binary data.
 - Content-Type and Content-Length of the file must be provided in the header.
 - The name of the file must be provided as a URI query parameter.
+- The file attached must be less than or equal to 5 megabytes.
 
 ### Request
 
