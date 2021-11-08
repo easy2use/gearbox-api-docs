@@ -4,6 +4,17 @@ https://datatracker.ietf.org/doc/html/rfc6749#section-4.4
 
 ## Examples
 
+### cURL
+
+```
+curl --location --request POST 'https://api.gearbox.com.au/oauth/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=$CLIENT_ID' \
+--data-urlencode 'client_secret=$CLIENT_SECRET' \
+--data-urlencode 'business_token=$BUSINESS_TOKEN'
+```
+
 ### Ruby/Rails
 
 1. Grab an (OAuth 2.0 library)[https://oauth.net/code/].
@@ -22,7 +33,7 @@ client = OAuth2::Client.new(
 
 ```Ruby
 token = client.client_credentials.get_token(
-  business_token: '123456'
+  business_token: '$BUSINESS_TOKEN'
 )
 ```
 
