@@ -49,7 +49,7 @@ Authorization: Bearer $ACCESS_TOKEN
       each: ""              // float, optional, format: 5.50
     }
   ],
-  repairers: [              // array, optional, size must be less than or equal to 10
+  repairers: [              // array, optional, size must be less than or equal to 5
     {
       name: "",             // string, required if code is blank, must match existing repairers name in the system
       code: ""              // string, required if name is blank, must match existing repairers code in the system
