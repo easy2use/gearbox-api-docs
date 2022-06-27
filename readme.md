@@ -28,6 +28,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Prestarts](endpoints/prestarts.md)
 - [Fault Reports](endpoints/fault_reports.md)
 - [Services](endpoints/services.md)
+- [Tyres](endpoints/tyres.md)
 
 ## Handling errors
 
