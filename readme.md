@@ -29,6 +29,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Fault Reports](endpoints/fault_reports.md)
 - [Services](endpoints/services.md)
 - [Tyres](endpoints/tyres.md)
+- [Repairs](endpoints/repairs.md)
 
 ## Handling errors
 
