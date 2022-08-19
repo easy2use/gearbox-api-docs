@@ -23,7 +23,7 @@ Authorization: Bearer $ACCESS_TOKEN
 {
   fleet_number: "",        // string, required if registration is blank, must match existing fleet number in the system
   registration: "",        // string, required if fleet_number is blank, must match existing registration in the system
-  inspection_type: "",     // string, required, if a match is not found then a new Inspection Type will be created with a default interval of 365 days
+  inspection_type: "",     // string, required, if a match is not found then an error is thrown
   date_open: "",           // date, required, format: 'yyyy-mm-dd'
   odometer_scheduled: "",  // integer, optional
   hours_scheduled: "",     // integer, optional
