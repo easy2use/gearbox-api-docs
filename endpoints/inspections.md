@@ -41,7 +41,7 @@ Authorization: Bearer $ACCESS_TOKEN
   date_scheduled_end: "",  // datetime, optional, format: yyyy-mm-dd hh:mm
   site: "",                // string, optional, if a site match is not found than an error is thrown
   general_ledger_code: "", // string, optional, if a general ledger code match is not found than an error is thrown
-  repairer: ""             // string, optional, must match existing repairers name or code
+  repairer: ""             // string, optional, if a repairers name or code match is not found than an error is thrown
 }
 ```
 
