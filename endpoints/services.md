@@ -5,7 +5,7 @@
 
 ## Create services
 
-`POST /public/v1/service` creates a new service with the provided information.
+`POST /public/v1/services` creates a new service with the provided information.
 
 Please note:
 
