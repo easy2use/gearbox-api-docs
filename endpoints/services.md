@@ -2,6 +2,7 @@
 
 - [Create services](#create-services)
 - [Create service documents](#create-service-documents)
+- [Get services](#get-services)
 
 ## Create services
 
@@ -170,4 +171,97 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/service/1/d
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN' \
 --data-binary '@image.png'
+```
+
+## Get services
+
+`GET /public/v1/services` retrieves services based on the filters specified
+
+Please note:
+
+- The date filter is applied on the `date_open` field
+- Results are ordered by `date_open` in ascending order
+- The returned results is limited to 100 records, if more records are available for the query the `moreData` field will return `true`
+  - Utilise the `offset` parameter to continue retrieving all records
+- Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
+- Snake case object keys are required.
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/services
+Method: GET
+Content-Type: application/json
+Authorization: Bearer $ACCESS_TOKEN
+{
+  date_filter: {
+    start: "", // date, required, format: 'yyyy-mm-dd'
+    end: "" // date, required, format: 'yyyy-mm-dd'
+  },
+  status: "", // string, required, must be either 'open' or 'closed'
+  offset: "" // integer, optional, if provided will offset the query by the amount specified
+}
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "services": [
+    {
+      "fleet_number": "PM05",
+      "registration": "PM005",
+      "service_type": "B",
+      "date_open": "2020-01-14",
+      "odometer_scheduled": 1000000,
+      "hours_scheduled": 100,
+      "jobcard_notes": "Carry out B Service",
+      "repairer_notes": "Performed B Service",
+      "closed": false,
+      "date_closed": "2020-01-14",
+      "hours_closed": 100,
+      "odometer_closed": 1000000,
+      "cost": 55.0,
+      "purchase_order": "ABC123",
+      "invoice": "ABC123",
+      "invoice_date": "2020-01-14",
+      "location": "Sydney Workshop",
+      "date_scheduled": "2020-01-22T06:00:00.000+11:00",
+      "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
+      "site": "Sydney",
+      "general_ledger_code": "ABC123",
+      "parts": [
+        {
+            "each": 55.0,
+            "quantity": 1.0,
+            "part_number": "DD123"
+        }
+      ],
+      "repairers": [
+        {
+            "code": "ABC123",
+            "name": "Gearbox"
+        }
+      ]
+    }
+  ],
+  "moreData": true
+}
+```
+
+###### Example
+
+```
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "date_filter": {
+    "start": "2020-01-01",
+    "end": "2020-02-01"
+  },
+  "status": "open",
+  "offset": "0"
+}'
 ```

@@ -8,7 +8,7 @@
 
 Please note:
 
-- Content-Type header `Content-Type: application/json` is required when POSTing tyres into Gearbox.
+- Content-Type header `Content-Type: application/json` is required when POSTing odometers into Gearbox.
 - Snake case object keys are required.
 
 ### Request
