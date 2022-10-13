@@ -212,6 +212,8 @@ Authorization: Bearer $ACCESS_TOKEN
       "fleet_number": "PM05",
       "registration": "PM005",
       "service_type": "B",
+      "service_type_alias": "Oil and Filters",
+      "service_number": 123,
       "date_open": "2020-01-14",
       "odometer_scheduled": 1000000,
       "hours_scheduled": 100,
@@ -228,11 +230,13 @@ Authorization: Bearer $ACCESS_TOKEN
       "location": "Sydney Workshop",
       "date_scheduled": "2020-01-22T06:00:00.000+11:00",
       "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
+      "created_at": "2020-01-22T07:30:00.000+11:00",
       "site": "Sydney",
-      "general_ledger_code": "ABC123",
+      "general_ledger_code": "ABC123 - Maintenance",
       "parts": [
         {
             "each": 55.0,
+            "total": 55.0,
             "quantity": 1.0,
             "part_number": "DD123"
         }
