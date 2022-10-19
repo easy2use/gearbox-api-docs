@@ -181,7 +181,7 @@ Please note:
 
 - The date filter is applied on the `date_open` field
 - Results are ordered by `date_open` in ascending order
-- The returned results is limited to 100 records, if more records are available for the query the `moreData` field will return `true`
+- The returned results is limited to 100 records, if more records are available for the query the `more_data` field will return `true`
   - Utilise the `offset` parameter to continue retrieving all records
 - Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
 - Snake case object keys are required.
@@ -249,7 +249,7 @@ Authorization: Bearer $ACCESS_TOKEN
       ]
     }
   ],
-  "moreData": true
+  "more_data": true
 }
 ```
 
