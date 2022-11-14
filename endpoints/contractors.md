@@ -61,7 +61,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request POST http://api.lvh.me:3000/public/v1/contractors \
+curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer 78PJHNcLMRBi_jpVDFaPt-iJkbEwX4KTW3ezgEDrDeM" \
 --data '{
