@@ -36,7 +36,7 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "", // string, optional
   code: "", // string, optional, maximum length 20 characters
   position: "", // string, optional
-  group: "" // string, optional, must match existing Vehicle Group
+  vehicle_group: "" // string, optional, must match existing Vehicle Group
 }
 ```
 
@@ -69,8 +69,13 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "terminated":false,
       "phone":"123456",
       "mobile":"0411111111",
+      "address1":"123 Fake Street"
+      "city":"Adelaide",
+      "state":"SA",
+      "postcode":"5005",
       "position":"CEO",
       "abn":"1938431907",
+      "email":"contractors@contractorsrus.com.au",
       "vehicle_group":"Adelaide"
     }' 
 ```
