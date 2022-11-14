@@ -181,32 +181,29 @@ Please note:
 
 - The date filter is applied on the `date_open` field
 - Results are ordered by `date_open` in ascending order
-- The returned results is limited to 100 records, if more records are available for the query the `more_data` field will return `true`
-  - Utilise the `offset` parameter to continue retrieving all records
+- The returned results is limited to 100 records,
 - Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
-- Snake case object keys are required.
+- If the `next` link is empty or matches the `last` link you have retrieved all data for the query
 
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/services
+URL: https://api.gearbox.com.au/public/v1/services?page=1&start_date=2020-01-01&end_date=2022-10-01&status=open
 Method: GET
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
-{
-  date_filter: {
-    start: "", // date, required, format: 'yyyy-mm-dd'
-    end: "" // date, required, format: 'yyyy-mm-dd'
-  },
-  status: "", // string, required, must be either 'open' or 'closed'
-  offset: "" // integer, optional, if provided will offset the query by the amount specified
-}
 ```
 
 ### 200 - Successful response
 
 ```JSON
 {
+  "links": {
+    "first": "/public/v1/services?page=1",
+    "last": "/public/v1/services?page=2",
+    "prev": null,
+    "next": "/public/v1/services?page=2"
+  },
   "services": [
     {
       "fleet_number": "PM05",
@@ -248,24 +245,15 @@ Authorization: Bearer $ACCESS_TOKEN
         }
       ]
     }
-  ],
-  "more_data": true
+  ]
 }
 ```
 
 ###### Example
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/services?page=1&start_date=2020-01-01&end_date=2022-10-01&status=open' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer $ACCESS_TOKEN' \
---data-raw '{
-  "date_filter": {
-    "start": "2020-01-01",
-    "end": "2020-02-01"
-  },
-  "status": "open",
-  "offset": "0"
-}'
+--header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
