@@ -54,7 +54,8 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "id": 123
+  "id": 123,
+  "code": "abc123"
 }
 ```
 
@@ -78,4 +79,55 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "email":"contractors@contractorsrus.com.au",
       "vehicle_group":"Adelaide"
     }' 
+```
+
+## Create contractor documents
+
+`POST /public/v1/contractor/:id/documents` creates a document attaching it to a provided contractor `:id`.
+
+Please note:
+
+- The request body should be the file's raw binary data.
+- Content-Type and Content-Length of the file must be provided in the header.
+- The name of the file must be provided as a URI query parameter.
+- The file attached must be less than or equal to 5 megabytes.
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/contractor/1/documents?name=image.png
+Method: POST
+Content-Type: image/png
+Content-Length: 123
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### Response status codes:
+
+- 201: Created
+- 400: Bad Request
+- 401: Unauthorised
+- 403: Forbidden
+- 411: Length Required
+- 413: Request Entity Too Large
+- 415: Unsupported media type
+- 422: Unprocessable Entity
+
+### 201 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
+
+###### Example
+
+```
+curl --location --request POST 'https://api.gearbox.com.au/public/v1/contractor/1/documents?name=image.png' \
+--header 'Content-Type: image/png' \
+--header 'Content-Length: 123' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-binary '@image.png'
 ```
