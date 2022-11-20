@@ -1,6 +1,7 @@
 # Contractors
 
 - [Create contractors](#create-contractors)
+- [Create contractor documents](#create-contractor-documents)
 
 ## Create contractors
 
@@ -20,23 +21,23 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  company_name: "", // string, required, maximum length 100 characters
-  terminated: "", // boolean, optional, defaults to false
-  phone: "", // string, optional, maximum length 20 characters
-  mobile: "", // string, optional, maximum length 20 characters
-  address1: "", // string, optional, maximum length 100 characters
-  address2: "", // string, optional, maximum length 100 characters
-  city: "", // string, optional, maximum length 100 characters
-  state: "", // string, optional, maximum length 20 characters
-  postcode: "", // string, optional, maximum length 10 characters
-  abn: "", // string, optional, maximum length 100 characters
-  email: "", // string, optional, maximum length 50 characters
-  fax: "", // string, optional, maximum length 20 characters
-  contact: "", // string, optional, maximum length 50 characters
-  notes: "", // string, optional
-  code: "", // string, optional, maximum length 20 characters
-  position: "", // string, optional
-  vehicle_group: "" // string, optional, must match existing Vehicle Group
+  company_name: "",         // string, required, maximum length 100 characters
+  terminated: "",           // boolean, optional, defaults to false
+  phone: "",                // string, optional, maximum length 20 characters
+  mobile: "",               // string, optional, maximum length 20 characters
+  address1: "",             // string, optional, maximum length 100 characters
+  address2: "",             // string, optional, maximum length 100 characters
+  city: "",                 // string, optional, maximum length 100 characters
+  state: "",                // string, optional, maximum length 20 characters
+  postcode: "",             // string, optional, maximum length 10 characters
+  abn: "",                  // string, optional, maximum length 100 characters
+  email: "",                // string, optional, maximum length 50 characters
+  fax: "",                  // string, optional, maximum length 20 characters
+  contact: "",              // string, optional, maximum length 50 characters
+  notes: "",                // string, optional
+  code: "",                 // string, optional, maximum length 20 characters
+  position: "",             // string, optional
+  vehicle_group: "",        // string, optional, must match existing Vehicle Group
 }
 ```
 
@@ -64,7 +65,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ```
 curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
 --header "Content-Type: application/json" \
---header "Authorization: Bearer 78PJHNcLMRBi_jpVDFaPt-iJkbEwX4KTW3ezgEDrDeM" \
+--header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
       "company_name":"Contractors R Us",
       "terminated":false,
