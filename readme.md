@@ -32,6 +32,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Repairs](endpoints/repairs.md)
 - [Odometers](endpoints/odometers.md)
 - [Inspections](endpoints/inspections.md)
+- [Contractors](endpoints/contractors.md)
 
 ## Handling errors
 
