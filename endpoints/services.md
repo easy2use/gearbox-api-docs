@@ -177,33 +177,96 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/service/1/d
 
 `GET /public/v1/services` retrieves services based on the filters specified
 
-Please note:
-
-- The date filter is applied on the `date_open` field
-- Results are ordered by `date_open` in ascending order
-- The returned results is limited to 100 records,
-- Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
-- If the `next` link is empty or matches the `last` link you have retrieved all data for the query
-
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/services?page=1&start_date=2020-01-01&end_date=2022-10-01&status=open
+URL: https://api.gearbox.com.au/public/v1/services
 Method: GET
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
+```
+
+### Pagination
+
+The `Link` header will provide the URL to the next page of results, for example:
+
+`Link: <https://api.gearbox.com.au/public/v1/services?page=2>; rel="next"`
+
+If the `Link` header is blank then that is the last page of results. 
+
+The `X-Total-Count` header is also provided which displays the total number of records for the query.
+
+### Filtering
+
+| Operator             | Description           | Example                                          |
+|----------------------|-----------------------|--------------------------------------------------|
+| Comparison Operators |                       |                                                  |
+| eq                   | Equal                 | fleet_number eq 'PM05'                           |
+| ne                   | Not equal             | fleet_number ne 'PM05'                           |
+| lt                   | Less than             | service_number lt 25                             |
+| le                   | Less than or equal    | service_number le 25                             |
+| gt                   | Greater than          | service_number gt 30                             |
+| ge                   | Greater than or equal | service_number gt 30                             |
+| Logical Operators    |                       |                                                  |
+| AND                  | Logical and           | fleet_number eq 'PM05' AND service_number gt 30  |
+| OR                   | Logical or            | fleet_number eq 'PM05' OR fleet_number eq 'PM04' |
+
+Example: all services assigned to vehicle with fleet number PM05
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=fleet_number eq 'PM05'`
+
+Example: open services with date open greater than 01/01/2022
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=closed ne true AND date_open gt 2022-01-01`
+
+Example: closed services with date open greater than 01/01/2022 assigned to vehicle with fleet number PM01
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=closed eq true AND date_open gt 2022-01-01 AND fleet_number eq 'PM01'`
+
+Example: closed A services assigned to vehicle with fleet number PM01
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=service_type eq 'A' AND fleet_number eq 'PM01' AND closed eq true`
+
+### Avaliable filters
+
+```
+id
+fleet_number
+registration
+service_type
+service_number
+date_open
+odometer_scheduled
+hours_scheduled
+jobcard_notes
+repairer_notes
+closed
+date_closed
+hours_closed
+odometer_closed
+tax
+cost
+purchase_order
+invoice
+invoice_date
+location
+date_scheduled
+date_scheduled_end
+created_at
+site
+general_ledger_code
+parts.part_number
+parts.quantity
+parts.each
+parts.total
+repairers.name
+repairers.code
 ```
 
 ### 200 - Successful response
 
 ```JSON
 {
-  "links": {
-    "first": "/public/v1/services?page=1",
-    "last": "/public/v1/services?page=2",
-    "prev": null,
-    "next": "/public/v1/services?page=2"
-  },
   "services": [
     {
       "fleet_number": "PM05",
@@ -252,7 +315,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/services?page=1&start_date=2020-01-01&end_date=2022-10-01&status=open' \
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'

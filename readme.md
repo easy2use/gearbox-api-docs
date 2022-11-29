@@ -41,9 +41,11 @@ API clients must expect and gracefully handle transient errors, such as rate lim
 
 If a response returns a 4xx status code all changes will be rolled back and you must resolve all issues before re-sending the request.
 
-### Rate limiting (503 Service unavailable)
+### Rate limiting (429 Too Many Requests)
 
-You can perform up to 20 requests per 10-second period from the same IP address for the same account. If you exceed this limit, you'll get a 503 Service unavailable for subsequent requests.
+You can perform up to 20 requests per 15-second period from the same IP address for the same account.
+
+If you exceed this limit you will receive a 429 response with a `Retry-After` header, this is how many seconds you must wait before making another request.
 
 ### 5xx server errors
 
