@@ -151,7 +151,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles/6245 \
+curl --location --request PATCH http://api.gearbox.com.au/public/v1/vehicles/6245 \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
