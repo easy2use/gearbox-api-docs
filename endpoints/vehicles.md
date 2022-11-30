@@ -62,7 +62,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ```JSON
 {
   "id": 123,
-  "fleet_number": "abc123"
+  "fleet_number": "ABC123"
 }
 ```
 
@@ -144,7 +144,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ```JSON
 {
   "id": 123,
-  "fleet_number": "abc123"
+  "fleet_number": "ABC123"
 }
 ```
 
