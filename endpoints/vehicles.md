@@ -35,7 +35,7 @@ Authorization: Bearer $ACCESS_TOKEN
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare20
+  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare18
   powered: "",                // boolean, optional, defaults to false
   engine_number: "",          // string, optional, maximum length 20 characters
   engine_make: "",            // string, optional, maximum length 50 characters
@@ -99,7 +99,7 @@ Please note:
 
 ```
 URL: https://api.gearbox.com.au/public/v1/vehicles
-Method: POST
+Method: PATCH
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
@@ -117,7 +117,7 @@ Authorization: Bearer $ACCESS_TOKEN
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare20
+  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare18
   powered: "",                // boolean, optional, defaults to false
   engine_number: "",          // string, optional, maximum length 20 characters
   engine_make: "",            // string, optional, maximum length 50 characters
