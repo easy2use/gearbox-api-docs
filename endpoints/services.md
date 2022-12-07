@@ -6,16 +6,16 @@
 
 ## Get services
 
-`GET /public/v1/services` retrieves a [paginated list](../readme.md/#pagination) of services 
+`GET /public/v1/services` retrieves a [paginated list](../readme.md/#pagination) of services.
 
 Please note:
 
-- Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
-- Optional [filtering](../readme.md/#filters) is available for this endpoint if needed
+- Optional [filtering](../readme.md/#filtering) is available for this endpoint if needed.
 
 <details>
 <summary>Filter attributes names</summary>
 <br>
+  
 - id
 - fleet_number
 - registration
@@ -54,7 +54,6 @@ Please note:
 ```
 URL: https://api.gearbox.com.au/public/v1/services
 Method: GET
-Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 ```
 
@@ -111,7 +110,6 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```
 curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
---header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
