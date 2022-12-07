@@ -35,7 +35,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 
 ## Pagination
 
-The API follows the [RFC5988 convention](https://www.rfc-editor.org/rfc/rfc5988) of using the Link header to provide URLs for the next page. Follow this convention to retrieve the next page of data.
+The API follows the [RFC5988 convention](https://www.rfc-editor.org/rfc/rfc5988) of using the `Link` header to provide URLs for the next page. Follow this convention to retrieve the next page of data.
 
 Here's an example response header from requesting the second page of services:
 
@@ -45,7 +45,7 @@ If the `Link` header is blank then that is the last page of results. The `X-Tota
 
 ## Filtering
 
-The `filter` query string parameter allows clients to filter a collection of resources in the request URL. The expression language used supports references to attribute names, filter operators, and literal values e.g. strings (enclosed in double quotes), numbers, dates, and boolean values (true or false). Each expression must contain an attribute name followed by a filter operator and literal value. Both attribute name and operators are case-sensitive.
+The `filter` query string parameter allows clients to filter a collection of resources in the request URL. The expression language used supports references to attribute names, filter operators, and literal values e.g. strings (enclosed in double quotes), numbers, dates, and boolean values (true or false). Each expression MUST contain an attribute name followed by a filter operator and literal value. Both attribute name and operators are case-sensitive.
 
 ### Filter operations
 
