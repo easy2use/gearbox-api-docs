@@ -1,8 +1,120 @@
 # Services
 
+- [Get services](#get-services)
 - [Create services](#create-services)
 - [Create service documents](#create-service-documents)
-- [Get services](#get-services)
+
+## Get services
+
+`GET /public/v1/services` retrieves a [paginated list](../readme.md/#pagination) of services 
+
+Please note:
+
+- Content-Type header `Content-Type: application/json` is required when GETting services from Gearbox.
+- Optional [filtering](../readme.md/#filters) is available for this endpoint if needed
+
+<details>
+<summary>Filter attributes names</summary>
+<br>
+- id
+- fleet_number
+- registration
+- service_type
+- service_number
+- date_open
+- odometer_scheduled
+- hours_scheduled
+- jobcard_notes
+- repairer_notes
+- closed
+- date_closed
+- hours_closed
+- odometer_closed
+- tax
+- cost
+- purchase_order
+- invoice
+- invoice_date
+- location
+- date_scheduled
+- date_scheduled_end
+- created_at
+- site
+- general_ledger_code
+- parts.part_number
+- parts.quantity
+- parts.each
+- parts.total
+- repairers.name
+- repairers.code
+</details>
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/services
+Method: GET
+Content-Type: application/json
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "services": [
+    {
+      "fleet_number": "PM05",
+      "registration": "PM005",
+      "service_type": "B",
+      "service_type_alias": "Oil and Filters",
+      "service_number": 123,
+      "date_open": "2020-01-14",
+      "odometer_scheduled": 1000000,
+      "hours_scheduled": 100,
+      "jobcard_notes": "Carry out B Service",
+      "repairer_notes": "Performed B Service",
+      "closed": false,
+      "date_closed": "2020-01-14",
+      "hours_closed": 100,
+      "odometer_closed": 1000000,
+      "cost": 55.0,
+      "purchase_order": "ABC123",
+      "invoice": "ABC123",
+      "invoice_date": "2020-01-14",
+      "location": "Sydney Workshop",
+      "date_scheduled": "2020-01-22T06:00:00.000+11:00",
+      "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
+      "created_at": "2020-01-22T07:30:00.000+11:00",
+      "site": "Sydney",
+      "general_ledger_code": "ABC123 - Maintenance",
+      "parts": [
+        {
+            "each": 55.0,
+            "total": 55.0,
+            "quantity": 1.0,
+            "part_number": "DD123"
+        }
+      ],
+      "repairers": [
+        {
+            "code": "ABC123",
+            "name": "Gearbox"
+        }
+      ]
+    }
+  ]
+}
+```
+
+###### Example
+
+```
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN'
+```
 
 ## Create services
 
@@ -171,152 +283,4 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/service/1/d
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN' \
 --data-binary '@image.png'
-```
-
-## Get services
-
-`GET /public/v1/services` retrieves services based on the filters specified
-
-### Request
-
-```
-URL: https://api.gearbox.com.au/public/v1/services
-Method: GET
-Content-Type: application/json
-Authorization: Bearer $ACCESS_TOKEN
-```
-
-### Pagination
-
-The `Link` header will provide the URL to the next page of results, for example:
-
-`Link: <https://api.gearbox.com.au/public/v1/services?page=2>; rel="next"`
-
-If the `Link` header is blank then that is the last page of results. 
-
-The `X-Total-Count` header is also provided which displays the total number of records for the query.
-
-### Filtering
-
-| Operator             | Description           | Example                                          |
-|----------------------|-----------------------|--------------------------------------------------|
-| Comparison Operators |                       |                                                  |
-| eq                   | Equal                 | fleet_number eq 'PM05'                           |
-| ne                   | Not equal             | fleet_number ne 'PM05'                           |
-| lt                   | Less than             | service_number lt 25                             |
-| le                   | Less than or equal    | service_number le 25                             |
-| gt                   | Greater than          | service_number gt 30                             |
-| ge                   | Greater than or equal | service_number gt 30                             |
-| Logical Operators    |                       |                                                  |
-| AND                  | Logical and           | fleet_number eq 'PM05' AND service_number gt 30  |
-| OR                   | Logical or            | fleet_number eq 'PM05' OR fleet_number eq 'PM04' |
-
-Example: all services assigned to vehicle with fleet number PM05
-
-`GET http://api.gearbox.com.au/public/v1/services?filter=fleet_number eq 'PM05'`
-
-Example: open services with date open greater than 01/01/2022
-
-`GET http://api.gearbox.com.au/public/v1/services?filter=closed ne true AND date_open gt 2022-01-01`
-
-Example: closed services with date open greater than 01/01/2022 assigned to vehicle with fleet number PM01
-
-`GET http://api.gearbox.com.au/public/v1/services?filter=closed eq true AND date_open gt 2022-01-01 AND fleet_number eq 'PM01'`
-
-Example: closed A services assigned to vehicle with fleet number PM01
-
-`GET http://api.gearbox.com.au/public/v1/services?filter=service_type eq 'A' AND fleet_number eq 'PM01' AND closed eq true`
-
-### Avaliable filters
-
-```
-id
-fleet_number
-registration
-service_type
-service_number
-date_open
-odometer_scheduled
-hours_scheduled
-jobcard_notes
-repairer_notes
-closed
-date_closed
-hours_closed
-odometer_closed
-tax
-cost
-purchase_order
-invoice
-invoice_date
-location
-date_scheduled
-date_scheduled_end
-created_at
-site
-general_ledger_code
-parts.part_number
-parts.quantity
-parts.each
-parts.total
-repairers.name
-repairers.code
-```
-
-### 200 - Successful response
-
-```JSON
-{
-  "services": [
-    {
-      "fleet_number": "PM05",
-      "registration": "PM005",
-      "service_type": "B",
-      "service_type_alias": "Oil and Filters",
-      "service_number": 123,
-      "date_open": "2020-01-14",
-      "odometer_scheduled": 1000000,
-      "hours_scheduled": 100,
-      "jobcard_notes": "Carry out B Service",
-      "repairer_notes": "Performed B Service",
-      "closed": false,
-      "date_closed": "2020-01-14",
-      "hours_closed": 100,
-      "odometer_closed": 1000000,
-      "cost": 55.0,
-      "purchase_order": "ABC123",
-      "invoice": "ABC123",
-      "invoice_date": "2020-01-14",
-      "location": "Sydney Workshop",
-      "date_scheduled": "2020-01-22T06:00:00.000+11:00",
-      "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
-      "created_at": "2020-01-22T07:30:00.000+11:00",
-      "site": "Sydney",
-      "general_ledger_code": "ABC123 - Maintenance",
-      "parts": [
-        {
-            "each": 55.0,
-            "total": 55.0,
-            "quantity": 1.0,
-            "part_number": "DD123"
-        }
-      ],
-      "repairers": [
-        {
-            "code": "ABC123",
-            "name": "Gearbox"
-        }
-      ]
-    }
-  ]
-}
-```
-
-###### Example
-
-```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
