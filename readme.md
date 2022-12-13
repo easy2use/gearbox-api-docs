@@ -34,6 +34,53 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Inspections](endpoints/inspections.md)
 - [Contractors](endpoints/contractors.md)
 
+## Pagination
+
+The API follows the [RFC5988 convention](https://www.rfc-editor.org/rfc/rfc5988) of using the `Link` header to provide URLs for the next page. Follow this convention to retrieve the next page of data.
+
+Here's an example response header from requesting the second page of services:
+
+`Link: <https://api.gearbox.com.au/public/v1/services?page=2>; rel="next"`
+
+If the `Link` header is blank then that is the last page of results. The `X-Total-Count` header is also provided which displays the total number of resources in the collection you are fetching.
+
+## Filtering
+
+The `filter` query string parameter allows clients to filter a collection of resources in the request URL. The expression language used supports references to attribute names, filter operators, and literal values e.g. strings (enclosed in double quotes), numbers, dates, and boolean values (true or false). Each expression MUST contain an attribute name followed by a filter operator and literal value. Both attribute name and operators are case-sensitive.
+
+### Filter operations
+
+| Operator             | Description           | Example                                          |
+|----------------------|-----------------------|--------------------------------------------------|
+| Comparison Operators |                       |                                                  |
+| eq                   | Equal                 | fleet_number eq 'PM05'                           |
+| ne                   | Not equal             | fleet_number ne 'PM05'                           |
+| lt                   | Less than             | service_number lt 25                             |
+| le                   | Less than or equal    | service_number le 25                             |
+| gt                   | Greater than          | service_number gt 30                             |
+| ge                   | Greater than or equal | service_number gt 30                             |
+| Logical Operators    |                       |                                                  |
+| AND                  | Logical and           | fleet_number eq 'PM05' AND service_number gt 30  |
+| OR                   | Logical or            | fleet_number eq 'PM05' OR fleet_number eq 'PM04' |
+
+Example: all services assigned to vehicle with fleet number PM05
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=fleet_number eq 'PM05'`
+
+Example: open services with date open greater than 01/01/2022
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=closed ne true AND date_open gt 2022-01-01`
+
+Example: closed services with date open greater than 01/01/2022 assigned to vehicle with fleet number PM01
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=closed eq true AND date_open gt 2022-01-01 AND fleet_number eq 'PM01'`
+
+Example: closed A services assigned to vehicle with fleet number PM01
+
+`GET http://api.gearbox.com.au/public/v1/services?filter=service_type eq 'A' AND fleet_number eq 'PM01' AND closed eq true`
+
+**Please note**: Not all endpoints support filtering. Please check the endpoints documentation before using this query string.
+
 ## Handling errors
 
 API clients must expect and gracefully handle transient errors, such as rate limiting, data or server errors.
@@ -42,9 +89,11 @@ API clients must expect and gracefully handle transient errors, such as rate lim
 
 If a response returns a 4xx status code all changes will be rolled back and you must resolve all issues before re-sending the request.
 
-### Rate limiting (503 Service unavailable)
+### Rate limiting (429 Too Many Requests)
 
-You can perform up to 20 requests per 10-second period from the same IP address for the same account. If you exceed this limit, you'll get a 503 Service unavailable for subsequent requests.
+You can perform up to 20 requests per 15-second period from the same IP address for the same account.
+
+If you exceed this limit you will receive a 429 response with a `Retry-After` header, this is how many seconds you must wait before making another request.
 
 ### 5xx server errors
 

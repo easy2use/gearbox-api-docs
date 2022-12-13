@@ -1,7 +1,118 @@
 # Services
 
+- [Get services](#get-services)
 - [Create services](#create-services)
 - [Create service documents](#create-service-documents)
+
+## Get services
+
+`GET /public/v1/services` retrieves a [paginated list](../readme.md/#pagination) of services.
+
+Please note:
+
+- Optional [filtering](../readme.md/#filtering) is available for this endpoint if needed.
+
+<details>
+<summary>Filter attributes names</summary>
+<br>
+  
+- id
+- fleet_number
+- registration
+- service_type
+- service_number
+- date_open
+- odometer_scheduled
+- hours_scheduled
+- jobcard_notes
+- repairer_notes
+- closed
+- date_closed
+- hours_closed
+- odometer_closed
+- tax
+- cost
+- purchase_order
+- invoice
+- invoice_date
+- location
+- date_scheduled
+- date_scheduled_end
+- created_at
+- site
+- general_ledger_code
+- parts.part_number
+- parts.quantity
+- parts.each
+- parts.total
+- repairers.name
+- repairers.code
+</details>
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/services
+Method: GET
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "services": [
+    {
+      "fleet_number": "PM05",
+      "registration": "PM005",
+      "service_type": "B",
+      "service_type_alias": "Oil and Filters",
+      "service_number": 123,
+      "date_open": "2020-01-14",
+      "odometer_scheduled": 1000000,
+      "hours_scheduled": 100,
+      "jobcard_notes": "Carry out B Service",
+      "repairer_notes": "Performed B Service",
+      "closed": false,
+      "date_closed": "2020-01-14",
+      "hours_closed": 100,
+      "odometer_closed": 1000000,
+      "cost": 55.0,
+      "purchase_order": "ABC123",
+      "invoice": "ABC123",
+      "invoice_date": "2020-01-14",
+      "location": "Sydney Workshop",
+      "date_scheduled": "2020-01-22T06:00:00.000+11:00",
+      "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
+      "created_at": "2020-01-22T07:30:00.000+11:00",
+      "site": "Sydney",
+      "general_ledger_code": "ABC123 - Maintenance",
+      "parts": [
+        {
+            "each": 55.0,
+            "total": 55.0,
+            "quantity": 1.0,
+            "part_number": "DD123"
+        }
+      ],
+      "repairers": [
+        {
+            "code": "ABC123",
+            "name": "Gearbox"
+        }
+      ]
+    }
+  ]
+}
+```
+
+###### Example
+
+```
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/services' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN'
+```
 
 ## Create services
 
