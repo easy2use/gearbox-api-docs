@@ -135,11 +135,12 @@ Authorization: Bearer $ACCESS_TOKEN
 - 400: Bad Request
 - 401: Unauthorised
 - 403: Forbidden
+- 404: Not Found
 - 413: Request Entity Too Large
 - 415: Unsupported media type
 - 422: Unprocessable Entity
 
-### 201 - Successful response
+### 200 - Successful response
 
 ```JSON
 {
