@@ -117,7 +117,7 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/vehicles
+URL: https://api.gearbox.com.au/public/v1/vehicles/1
 Method: PATCH
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
