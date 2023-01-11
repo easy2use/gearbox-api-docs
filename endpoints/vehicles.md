@@ -10,7 +10,7 @@
 
 Please note:
 
-- Content-Type header `Content-Type: application/json` is required when POSTing / PATCHing vehicles into Gearbox.
+- Content-Type header `Content-Type: application/json` is required when POSTing vehicles into Gearbox.
 - Snake case object keys are required.
 
 ### Request
@@ -35,7 +35,26 @@ Authorization: Bearer $ACCESS_TOKEN
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare18
+  spare1: "",                // string, optional, maximum length 50 characters
+  spare2: "",                // string, optional, maximum length 50 characters
+  spare3: "",                // string, optional, maximum length 50 characters
+  spare4: "",                // string, optional, maximum length 50 characters
+  spare5: "",                // string, optional, maximum length 50 characters
+  spare6: "",                // string, optional, maximum length 50 characters
+  spare7: "",                // string, optional, maximum length 50 characters
+  spare8: "",                // string, optional, maximum length 50 characters
+  spare9: "",                // string, optional, maximum length 50 characters
+  spare10: "",                // string, optional, maximum length 50 characters
+  spare11: "",                // string, optional, maximum length 50 characters
+  spare12: "",                // string, optional, maximum length 50 characters
+  spare13: "",                // string, optional, maximum length 50 characters
+  spare14: "",                // string, optional, maximum length 50 characters
+  spare15: "",                // string, optional, maximum length 50 characters
+  spare16: "",                // string, optional, maximum length 50 characters
+  spare17: "",                // string, optional, maximum length 50 characters
+  spare18: "",                // string, optional, maximum length 50 characters
+  spare19: "",                // string, optional, maximum length 50 characters
+  spare20: "",                // string, optional, maximum length 50 characters
   powered: "",                // boolean, optional, defaults to false
   engine_number: "",          // string, optional, maximum length 20 characters
   engine_make: "",            // string, optional, maximum length 50 characters
@@ -43,7 +62,7 @@ Authorization: Bearer $ACCESS_TOKEN
   engine_capacity: "",        // string, optional, maximum length 50 characters
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
-  contractor: "",             // string, optional, must match existing Contractor
+  contractor: ""              // string, optional, must match existing Contractor
 }
 ```
 
@@ -92,7 +111,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles \
 
 Please note:
 
-- Content-Type header `Content-Type: application/json` is required when POSTing / PATCHing vehicles into Gearbox.
+- Content-Type header `Content-Type: application/json` is required when PATCHing vehicles into Gearbox.
 - Snake case object keys are required.
 
 ### Request
@@ -104,8 +123,8 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  fleet_number: "",           // string, required, maximum length 12 characters, must be unique
-  service_group: "",          // string, required, must match existing Service Group
+  fleet_number: "",           // string, optional, maximum length 12 characters, must be unique
+  service_group: "",          // string, optional, must match existing Service Group
   registration: "",           // string, optional, maximum length 12 characters
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   unregistered: "",           // boolean, optional, defaults to false
@@ -117,7 +136,26 @@ Authorization: Bearer $ACCESS_TOKEN
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare01: "",                // string, optional, maximum length 50 characters - request may include spare01 through to spare18
+  spare1: "",                // string, optional, maximum length 50 characters
+  spare2: "",                // string, optional, maximum length 50 characters
+  spare3: "",                // string, optional, maximum length 50 characters
+  spare4: "",                // string, optional, maximum length 50 characters
+  spare5: "",                // string, optional, maximum length 50 characters
+  spare6: "",                // string, optional, maximum length 50 characters
+  spare7: "",                // string, optional, maximum length 50 characters
+  spare8: "",                // string, optional, maximum length 50 characters
+  spare9: "",                // string, optional, maximum length 50 characters
+  spare10: "",                // string, optional, maximum length 50 characters
+  spare11: "",                // string, optional, maximum length 50 characters
+  spare12: "",                // string, optional, maximum length 50 characters
+  spare13: "",                // string, optional, maximum length 50 characters
+  spare14: "",                // string, optional, maximum length 50 characters
+  spare15: "",                // string, optional, maximum length 50 characters
+  spare16: "",                // string, optional, maximum length 50 characters
+  spare17: "",                // string, optional, maximum length 50 characters
+  spare18: "",                // string, optional, maximum length 50 characters
+  spare19: "",                // string, optional, maximum length 50 characters
+  spare20: "",                // string, optional, maximum length 50 characters
   powered: "",                // boolean, optional, defaults to false
   engine_number: "",          // string, optional, maximum length 20 characters
   engine_make: "",            // string, optional, maximum length 50 characters
@@ -125,13 +163,13 @@ Authorization: Bearer $ACCESS_TOKEN
   engine_capacity: "",        // string, optional, maximum length 50 characters
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
-  contractor: "",             // string, optional, must match existing Contractor
+  contractor: ""              // string, optional, must match existing Contractor
 }
 ```
 
 ### Response status codes:
 
-- 201: Created
+- 200: OK
 - 400: Bad Request
 - 401: Unauthorised
 - 403: Forbidden
