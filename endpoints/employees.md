@@ -104,13 +104,13 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Examples
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/employees' \
+curl --location --request GET "https://api.gearbox.com.au/public/v1/employees" \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/employees?filter=state eq 'NSW'' \
+curl --location --request GET "https://api.gearbox.com.au/public/v1/employees?filter=state eq 'NSW'" \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
