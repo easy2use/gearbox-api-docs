@@ -44,9 +44,9 @@ Please note:
 - spare4
 - created_at
 - updated_at
-- groups.group_name
-- sub_groups.sub_group_name
-- types.type
+- groups.name
+- sub_groups.name
+- types.name
 </details>
 
 ### Request
