@@ -21,6 +21,7 @@ Authorization: Bearer $ACCESS_TOKEN
   fleet_number: "",       // string, required, must match existing fleet number in system
   completed_at: "",       // datetime, required, format: yyyy-mm-dd hh:mm:ss
   employee: "",           // string, required, if a match is not found then it is stored as a string
+  employee_number: “”,    // string, optional, if there are multiple employees with the same name you may use this field to specify your search
   odometer: "",           // integer, optional
   hours: "",              // integer, optional
   spare1: "",             // string, optional, maximum 256 characters
@@ -68,6 +69,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/prestarts' 
   "fleet_number": "PM01",
   "completed_at": "2021-10-01 12:00:00",
   "employee": "John Smith",
+  "employee_number": "7",
   "notes": "Some notes",
   "hours": 1000,
   "odometer": 5000,
