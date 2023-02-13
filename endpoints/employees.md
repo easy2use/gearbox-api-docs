@@ -1,4 +1,4 @@
-# Contractors
+# Employees
 
 - [Get employees](#get-employees)
 
