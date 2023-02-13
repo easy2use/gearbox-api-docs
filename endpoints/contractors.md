@@ -1,7 +1,89 @@
 # Contractors
 
+- [Get contractors](#get-contractors)
 - [Create contractors](#create-contractors)
 - [Create contractor documents](#create-contractor-documents)
+
+
+## Get contractors
+
+`GET /public/v1/contractors` retrieves a [paginated list](../readme.md/#pagination) of contractors.
+
+Please note:
+
+- Optional [filtering](../readme.md/#filtering) is available for this endpoint if needed.
+
+<details>
+<summary>Filter attributes names</summary>
+<br>
+  
+- id
+- company_name
+- terminated
+- phone
+- mobile
+- address1
+- address2
+- city
+- state
+- postcode
+- abn
+- email
+- fax
+- contact
+- notes
+- code
+- position
+- vehicle_group
+- vehicle_sub_group
+</details>
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/contractors
+Method: GET
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "contractors": 
+  [
+    {
+      "id": 773149396, 
+      "company_name": "Test Contractor", 
+      "terminated": false, 
+      "phone": "0411111111", 
+      "mobile": "0411111111", 
+      "address1": "123 Example Rd", 
+      "address2": "", 
+      "city": "Exampletown", 
+      "state": "NSW", 
+      "postcode": "1234", 
+      "abn": "12345678910", 
+      "email": "example@email.com.au", 
+      "fax": "12345678", 
+      "contact": "ANDREW GRAHAM", 
+      "notes": "Example notes", 
+      "code": "4567", 
+      "position": "DIRECTOR", 
+      "vehicle_group": { "group_name": "NSW" }, 
+      "vehicle_sub_group": { "sub_group_name": "Sydney" }
+    }
+  ]
+}
+```
+
+###### Examples
+
+```
+curl --location --request GET "https://api.gearbox.com.au/public/v1/contractors" \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN'
+```
 
 ## Create contractors
 
@@ -67,18 +149,18 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
-      "company_name":"Contractors R Us",
-      "terminated":false,
-      "phone":"123456",
-      "mobile":"0411111111",
-      "address1":"123 Fake Street"
-      "city":"Adelaide",
-      "state":"SA",
-      "postcode":"5005",
-      "position":"CEO",
-      "abn":"1938431907",
-      "email":"contractors@contractorsrus.com.au",
-      "vehicle_group":"Adelaide"
+      "company_name": "Contractors R Us",
+      "terminated": false,
+      "phone": "123456",
+      "mobile": "0411111111",
+      "address1": "123 Fake Street"
+      "city": "Adelaide",
+      "state": "SA",
+      "postcode": "5005",
+      "position": "CEO",
+      "abn": "1938431907",
+      "email": "contractors@contractorsrus.com.au",
+      "vehicle_group": "Adelaide"
     }' 
 ```
 
