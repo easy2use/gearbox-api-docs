@@ -68,18 +68,18 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
-      "company_name":"Contractors R Us",
-      "terminated":false,
-      "phone":"123456",
-      "mobile":"0411111111",
-      "address1":"123 Fake Street"
-      "city":"Adelaide",
-      "state":"SA",
-      "postcode":"5005",
-      "position":"CEO",
-      "abn":"1938431907",
-      "email":"contractors@contractorsrus.com.au",
-      "vehicle_group":"Adelaide"
+      "company_name": "Contractors R Us",
+      "terminated" :false,
+      "phone": "123456",
+      "mobile": "0411111111",
+      "address1": "123 Fake Street"
+      "city": "Adelaide",
+      "state": "SA",
+      "postcode": "5005",
+      "position": "CEO",
+      "abn": "1938431907",
+      "email": "contractors@contractorsrus.com.au",
+      "vehicle_group": "Adelaide"
     }' 
 ```
 

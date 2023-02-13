@@ -92,16 +92,16 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
-      "fleet_number":"ABC123",
-      "service_group":"Trucks",
-      "registration":"123ABC",
-      "registration_due_date":"2023-5-24",
-      "unregistered":false,
-      "vin":"1A2B3C4D5E6F",
-      "build_date":"2018",
-      "spare01":"1234",
-      "spare02":"5678",
-      "vehicle_group":"Adelaide"
+      "fleet_number": "ABC123",
+      "service_group": "Trucks",
+      "registration": "123ABC",
+      "registration_due_date": "2023-5-24",
+      "unregistered": false,
+      "vin": "1A2B3C4D5E6F",
+      "build_date": "2018",
+      "spare01": "1234",
+      "spare02": "5678",
+      "vehicle_group": "Adelaide"
     }' 
 ```
 
@@ -194,16 +194,16 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/vehicles/624
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
-      "fleet_number":"ABC123",
-      "service_group":"Trucks",
-      "registration":"123ABC",
-      "registration_due_date":"2023-5-24",
-      "unregistered":false,
-      "vin":"1A2B3C4D5E6F",
-      "build_date":"2018",
-      "spare01":"1234",
-      "spare02":"5678",
-      "vehicle_group":"Adelaide"
+      "fleet_number": "ABC123",
+      "service_group": "Trucks",
+      "registration": "123ABC",
+      "registration_due_date": "2023-05-24",
+      "unregistered" :false,
+      "vin": "1A2B3C4D5E6F",
+      "build_date": "2018",
+      "spare01": "1234",
+      "spare02": "5678",
+      "vehicle_group": "Adelaide"
     }' 
 ```
 
