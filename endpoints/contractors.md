@@ -39,6 +39,7 @@ Authorization: Bearer $ACCESS_TOKEN
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
   vehicle_group: "",        // string, optional, must match existing Vehicle Group
+  vehicle_sub_group: ""     // string, optional, must match existing Vehicle Sub Group
 }
 ```
 
@@ -69,7 +70,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
 --data '{
       "company_name": "Contractors R Us",
-      "terminated" :false,
+      "terminated": false,
       "phone": "123456",
       "mobile": "0411111111",
       "address1": "123 Fake Street"
@@ -79,7 +80,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "position": "CEO",
       "abn": "1938431907",
       "email": "contractors@contractorsrus.com.au",
-      "vehicle_group": "Adelaide"
+      "vehicle_group": "Adelaide",
+      "vehicle_sub_group": "Trucks"
     }' 
 ```
 
@@ -101,23 +103,24 @@ Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  company_name: "",   // string, required, maximum length 100 characters
-  terminated: "",     // boolean, optional, defaults to false
-  phone: "",          // string, optional, maximum length 20 characters
-  mobile: "",         // string, optional, maximum length 20 characters
-  address1: "",       // string, optional, maximum length 100 characters
-  address2: "",       // string, optional, maximum length 100 characters
-  city: "",           // string, optional, maximum length 100 characters
-  state: "",          // string, optional, maximum length 20 characters
-  postcode: "",       // string, optional, maximum length 10 characters
-  abn: "",            // string, optional, maximum length 100 characters
-  email: "",          // string, optional, maximum length 50 characters
-  fax: "",            // string, optional, maximum length 20 characters
-  contact: "",        // string, optional, maximum length 50 characters
-  notes: "",          // string, optional
-  code: "",           // string, optional, maximum length 20 characters
-  position: "",       // string, optional
-  group: ""           // string, optional, must match existing Vehicle Group
+  company_name: "",     // string, required, maximum length 100 characters
+  terminated: "",       // boolean, optional, defaults to false
+  phone: "",            // string, optional, maximum length 20 characters
+  mobile: "",           // string, optional, maximum length 20 characters
+  address1: "",         // string, optional, maximum length 100 characters
+  address2: "",         // string, optional, maximum length 100 characters
+  city: "",             // string, optional, maximum length 100 characters
+  state: "",            // string, optional, maximum length 20 characters
+  postcode: "",         // string, optional, maximum length 10 characters
+  abn: "",              // string, optional, maximum length 100 characters
+  email: "",            // string, optional, maximum length 50 characters
+  fax: "",              // string, optional, maximum length 20 characters
+  contact: "",          // string, optional, maximum length 50 characters
+  notes: "",            // string, optional
+  code: "",             // string, optional, maximum length 20 characters
+  position: "",         // string, optional
+  vehicle_group: ""     // string, optional, must match existing Vehicle Group
+  vehicle_sub_group: "" // string, optional, must match existing Vehicle Sub Group
 }
 ```
 
