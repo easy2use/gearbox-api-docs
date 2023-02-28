@@ -93,9 +93,21 @@ Authorization: Bearer $ACCESS_TOKEN
       "spare4": "123ABC",
       "created_at": "2022-11-23T09:12:13.956+11:00",
       "updated_at": "2022-11-23T09:12:13.956+11:00",
-      "groups": "NSW",
-      "sub_groups": "Sydney",
-      "types": "Fridge"
+      "groups": [
+        {
+          "name": "NSW"
+        }
+      ],
+      "sub_groups": [
+        {
+          "name": "Sydney"
+        }
+      ],
+      "types":  [
+        {
+          "name": "Fridge"
+        }
+      ]
     }
   ]
 }
