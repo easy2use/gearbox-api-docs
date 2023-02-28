@@ -51,8 +51,7 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "contractors": 
-  [
+  "contractors": [
     {
       "id": 773149396, 
       "company_name": "Test Contractor", 
@@ -121,8 +120,7 @@ Authorization: Bearer $ACCESS_TOKEN
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
   group: "",                // string, optional, must match existing Vehicle Group
-  sub_group: "",            // string, optional, must match existing Vehicle Sub Group
-
+  sub_group: ""             // string, optional, must match existing Vehicle Sub Group
 }
 ```
 
@@ -202,7 +200,7 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",            // string, optional
   code: "",             // string, optional, maximum length 20 characters
   position: "",         // string, optional
-  group: ""             // string, optional, must match existing Vehicle Group
+  group: "",            // string, optional, must match existing Vehicle Group
   sub_group: ""         // string, optional, must match existing Vehicle Sub Group
 }
 ```
