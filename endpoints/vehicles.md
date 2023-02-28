@@ -28,22 +28,22 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
-  sub_group: "",               // string, optional, must match existing Vehicle Group
+  sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
   model: "",                  // string, optional, maximum length 50 characters
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare1: "",                // string, optional, maximum length 50 characters
-  spare2: "",                // string, optional, maximum length 50 characters
-  spare3: "",                // string, optional, maximum length 50 characters
-  spare4: "",                // string, optional, maximum length 50 characters
-  spare5: "",                // string, optional, maximum length 50 characters
-  spare6: "",                // string, optional, maximum length 50 characters
-  spare7: "",                // string, optional, maximum length 50 characters
-  spare8: "",                // string, optional, maximum length 50 characters
-  spare9: "",                // string, optional, maximum length 50 characters
+  spare1: "",                 // string, optional, maximum length 50 characters
+  spare2: "",                 // string, optional, maximum length 50 characters
+  spare3: "",                 // string, optional, maximum length 50 characters
+  spare4: "",                 // string, optional, maximum length 50 characters
+  spare5: "",                 // string, optional, maximum length 50 characters
+  spare6: "",                 // string, optional, maximum length 50 characters
+  spare7: "",                 // string, optional, maximum length 50 characters
+  spare8: "",                 // string, optional, maximum length 50 characters
+  spare9: "",                 // string, optional, maximum length 50 characters
   spare10: "",                // string, optional, maximum length 50 characters
   spare11: "",                // string, optional, maximum length 50 characters
   spare12: "",                // string, optional, maximum length 50 characters
@@ -130,22 +130,22 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
-  sub_group: "",               // string, optional, must match existing Vehicle Group
+  sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
   model: "",                  // string, optional, maximum length 50 characters
   configuration: "",          // string, optional, must match existing Vehicle Configuration
   vin: "",                    // string, optional, maximum length 50 characters
   build_date: "",             // string, optional, maximum length 50 characters
-  spare1: "",                // string, optional, maximum length 50 characters
-  spare2: "",                // string, optional, maximum length 50 characters
-  spare3: "",                // string, optional, maximum length 50 characters
-  spare4: "",                // string, optional, maximum length 50 characters
-  spare5: "",                // string, optional, maximum length 50 characters
-  spare6: "",                // string, optional, maximum length 50 characters
-  spare7: "",                // string, optional, maximum length 50 characters
-  spare8: "",                // string, optional, maximum length 50 characters
-  spare9: "",                // string, optional, maximum length 50 characters
+  spare1: "",                 // string, optional, maximum length 50 characters
+  spare2: "",                 // string, optional, maximum length 50 characters
+  spare3: "",                 // string, optional, maximum length 50 characters
+  spare4: "",                 // string, optional, maximum length 50 characters
+  spare5: "",                 // string, optional, maximum length 50 characters
+  spare6: "",                 // string, optional, maximum length 50 characters
+  spare7: "",                 // string, optional, maximum length 50 characters
+  spare8: "",                 // string, optional, maximum length 50 characters
+  spare9: "",                 // string, optional, maximum length 50 characters
   spare10: "",                // string, optional, maximum length 50 characters
   spare11: "",                // string, optional, maximum length 50 characters
   spare12: "",                // string, optional, maximum length 50 characters
