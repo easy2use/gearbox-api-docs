@@ -38,7 +38,9 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",                // string, optional
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
-  vehicle_group: "",        // string, optional, must match existing Vehicle Group
+  group: "",        // string, optional, must match existing Vehicle Group
+  sub_group: "",        // string, optional, must match existing Vehicle Sub Group
+
 }
 ```
 
@@ -79,7 +81,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "position": "CEO",
       "abn": "1938431907",
       "email": "contractors@contractorsrus.com.au",
-      "vehicle_group": "Adelaide"
+      "group": "SA",
+      "sub_group": "Adelaide"
     }' 
 ```
 
@@ -162,8 +165,8 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/contractor/1
       "notes": "Example notes",
       "code": "ABC123",
       "position": "Manager",
-      "vehicle_group": "QLD",
-      "vehicle_sub_group": "Brisbane"
+      "group": "QLD",
+      "sub_group": "Brisbane"
     }' 
 ```
 
