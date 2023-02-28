@@ -34,8 +34,8 @@ Please note:
 - notes
 - code
 - position
-- vehicle_group
-- vehicle_sub_group
+- group
+- sub_group
 </details>
 
 ### Request
@@ -70,8 +70,8 @@ Authorization: Bearer $ACCESS_TOKEN
       "notes": "Example notes", 
       "code": "4567", 
       "position": "DIRECTOR", 
-      "vehicle_group": { "group_name": "NSW" }, 
-      "vehicle_sub_group": { "sub_group_name": "Sydney" }
+      "group": "NSW", 
+      "sub_group": "Sydney"
     }
   ]
 }
@@ -119,7 +119,9 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",                // string, optional
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
-  vehicle_group: "",        // string, optional, must match existing Vehicle Group
+  group: "",        // string, optional, must match existing Vehicle Group
+  sub_group: "",        // string, optional, must match existing Vehicle Sub Group
+
 }
 ```
 
@@ -160,7 +162,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "position": "CEO",
       "abn": "1938431907",
       "email": "contractors@contractorsrus.com.au",
-      "vehicle_group": "Adelaide"
+      "group": "SA",
+      "sub_group": "Adelaide"
     }' 
 ```
 
