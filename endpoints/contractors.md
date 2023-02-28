@@ -1,8 +1,89 @@
 # Contractors
 
+- [Get contractors](#get-contractors)
 - [Create contractors](#create-contractors)
 - [Update a contractor](#update-a-contractor)
 - [Create contractor documents](#create-contractor-documents)
+
+
+## Get contractors
+
+`GET /public/v1/contractors` retrieves a [paginated list](../readme.md/#pagination) of contractors.
+
+Please note:
+
+- Optional [filtering](../readme.md/#filtering) is available for this endpoint if needed.
+
+<details>
+<summary>Filter attributes names</summary>
+<br>
+  
+- id
+- company_name
+- terminated
+- phone
+- mobile
+- address1
+- address2
+- city
+- state
+- postcode
+- abn
+- email
+- fax
+- contact
+- notes
+- code
+- position
+- group
+- sub_group
+</details>
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/contractors
+Method: GET
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "contractors": [
+    {
+      "id": 773149396, 
+      "company_name": "Test Contractor", 
+      "terminated": false, 
+      "phone": "0411111111", 
+      "mobile": "0411111111", 
+      "address1": "123 Example Rd", 
+      "address2": "", 
+      "city": "Exampletown", 
+      "state": "NSW", 
+      "postcode": "1234", 
+      "abn": "12345678910", 
+      "email": "example@email.com.au", 
+      "fax": "12345678", 
+      "contact": "ANDREW GRAHAM", 
+      "notes": "Example notes", 
+      "code": "4567", 
+      "position": "DIRECTOR", 
+      "group": "NSW", 
+      "sub_group": "Sydney"
+    }
+  ]
+}
+```
+
+###### Examples
+
+```
+curl --location --request GET "https://api.gearbox.com.au/public/v1/contractors" \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN'
+```
 
 ## Create contractors
 
@@ -38,8 +119,8 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",                // string, optional
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
-  vehicle_group: "",        // string, optional, must match existing Vehicle Group
-  vehicle_sub_group: ""     // string, optional, must match existing Vehicle Sub Group
+  group: "",                // string, optional, must match existing Vehicle Group
+  sub_group: ""             // string, optional, must match existing Vehicle Sub Group
 }
 ```
 
@@ -80,8 +161,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/contractors \
       "position": "CEO",
       "abn": "1938431907",
       "email": "contractors@contractorsrus.com.au",
-      "vehicle_group": "Adelaide",
-      "vehicle_sub_group": "Trucks"
+      "group": "SA",
+      "sub_group": "Adelaide"
     }' 
 ```
 
@@ -119,8 +200,8 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",            // string, optional
   code: "",             // string, optional, maximum length 20 characters
   position: "",         // string, optional
-  vehicle_group: ""     // string, optional, must match existing Vehicle Group
-  vehicle_sub_group: "" // string, optional, must match existing Vehicle Sub Group
+  group: "",            // string, optional, must match existing Vehicle Group
+  sub_group: ""         // string, optional, must match existing Vehicle Sub Group
 }
 ```
 
@@ -145,6 +226,8 @@ Authorization: Bearer $ACCESS_TOKEN
 ```
 
 ###### Example
+
+```
 curl --location --request PATCH http://api.gearbox.com.au/public/v1/contractor/123 \
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer $ACCESS_TOKEN" \
@@ -165,8 +248,8 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/contractor/1
       "notes": "Example notes",
       "code": "ABC123",
       "position": "Manager",
-      "vehicle_group": "QLD",
-      "vehicle_sub_group": "Brisbane"
+      "group": "QLD",
+      "sub_group": "Brisbane"
     }' 
 ```
 

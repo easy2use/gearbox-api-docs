@@ -28,7 +28,7 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
-  subgroup: "",               // string, optional, must match existing Vehicle Group
+  sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
   model: "",                  // string, optional, maximum length 50 characters
@@ -101,7 +101,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles \
       "build_date": "2018",
       "spare01": "1234",
       "spare02": "5678",
-      "vehicle_group": "Adelaide"
+      "group": "SA",
+      "sub_group": "Adelaide"
     }' 
 ```
 
@@ -129,7 +130,7 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
-  subgroup: "",               // string, optional, must match existing Vehicle Group
+  sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
   model: "",                  // string, optional, maximum length 50 characters
@@ -203,7 +204,8 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/vehicles/624
       "build_date": "2018",
       "spare01": "1234",
       "spare02": "5678",
-      "vehicle_group": "Adelaide"
+      "group": "SA",
+      "sub_group": "Adelaide"
     }' 
 ```
 
