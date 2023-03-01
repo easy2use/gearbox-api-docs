@@ -25,7 +25,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 
 ### Endpoints
 
-- [Vehicles] (endpoints/vehicles.md)
+- [Vehicles](endpoints/vehicles.md)
 - [Prestarts](endpoints/prestarts.md)
 - [Fault Reports](endpoints/fault_reports.md)
 - [Services](endpoints/services.md)
