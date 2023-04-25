@@ -1,7 +1,149 @@
 # Tyres
-
+- [Get tyres](#get-tyres)
 - [Create tyres](#create-tyres)
 - [Create tyre documents](#create-tyre-documents)
+
+## Get tyres
+
+`GET /public/v1/tyres` retrieves a [paginated list](../readme.md/#pagination) of tyres.
+
+Please note:
+
+- Optional [filtering](../readme.md/#filtering) is available for this endpoint if needed.
+
+<details>
+<summary>Filter attributes names</summary>
+<br>
+- id
+- vehicle
+- fault
+- fleet_number
+- registration
+- tyre_number
+- reported_to
+- reported_by
+- date_reported
+- job_number
+- defect
+- defect_cleared_by_date
+- defect_cleared_by
+- odometer_open
+- hours_open
+- closed
+- date_closed
+- hours_closed
+- odometer_closed
+- purchase_order
+- location
+- created_at
+- updated_at
+- site
+- tyre_items.tyre_types
+- repairers.name
+- repairers.code
+- tyre_items.assigned_user_id
+- tyre_items.general_ledger_code_id
+</details>
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/repairs
+Method: GET
+Authorization: Bearer $ACCESS_TOKEN
+```
+
+### 200 - Successful response
+
+```JSON
+{
+  "tyres": [
+    {
+      "id": 1977344012, 
+      "date_reported": "2023-04-13", 
+      "fault": "F-436", 
+      "fleet_number": "CE123M", 
+      "registration": "117ABC", 
+      "reported_to": {
+        "last_name": "Smith", 
+        "first_name": "John", 
+        "employee_id": 401823
+      }, 
+      "reported_by": {
+        "last_name": "Kelly", 
+        "first_name": "Todd", 
+        "employee_id": 437232
+      }, 
+      "location": "SYDNEY", 
+      "job_number": "J-234", 
+      "defect": "Z0832HSA", 
+      "defect_cleared_by_date": "2023-01-12", 
+      "defect_cleared_by": {
+        "code": "ABC123", 
+        "repairer_id": 374203587, 
+        "repairer_name": "AAP"
+      }, 
+      "odometer_open": 500, 
+      "hours_open": 500, 
+      "created_at": "2023-04-18T11:45:35.568+10:00", 
+      "updated_at": "2023-04-18T11:45:36.654+10:00", 
+      "site": "Site Five", 
+      "tyre_items": [
+        {
+          "tax": 230.0, 
+          "cost": 2300.0, 
+          "notes": "Example Notes", 
+          "status": 1, 
+          "invoice": "", 
+          "problem": "Gasket leaking", 
+          "priority": 1, 
+          "repairers": [
+            {
+              "code": "ABC123", 
+              "name": "APA"
+            }
+          ], 
+          "date_closed": "2023-04-15" , 
+          "hours_closed": 1234, 
+          "tyre_types": [
+            {
+              "type_label": "#23 Brakes"
+            }
+          ], 
+          "assigned_user": {
+            "user_id": 10327456, 
+            "last_name": "Neutron", 
+            "first_name": "Jimmy"
+          }, 
+          "tyre_item_id": 89321737, 
+          "repairer_notes": "Remaining tasks:...", 
+          "odometer_closed": 0, 
+          "tyre_item_parts": [
+            {
+              "part_num": "Example part", 
+              "quantity": 1.0, 
+              "part_desc": "Example description", 
+              "tyre_item_part_id": 840411104
+            }
+          ], 
+          "general_ledger_code": {
+            "gl_code": "4321", 
+            "description": "GL code example"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+###### Example
+
+```
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/repairs' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN'
+```
 
 ## Create tyres
 
