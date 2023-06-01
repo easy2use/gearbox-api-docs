@@ -14,41 +14,55 @@ Please note:
 <details>
 <summary>Filter attributes names</summary>
 <br>
-- id
-- vehicle
-- fault
-- fleet_number
-- registration
-- tyre_number
-- reported_to
-- reported_by
-- date_reported
-- job_number
-- defect
-- defect_cleared_by_date
-- defect_cleared_by
-- odometer_open
-- hours_open
-- closed
-- date_closed
-- hours_closed
-- odometer_closed
-- purchase_order
-- location
-- created_at
-- updated_at
-- site
-- tyre_items.tyre_types
-- repairers.name
-- repairers.code
-- tyre_items.assigned_user_id
-- tyre_items.general_ledger_code_id
+  id,
+  vehicle
+  fault
+  fleet_number
+  registration
+  tyre_number
+  reported_to,
+  reported_by,
+  date_reported,
+  job_number,
+  defect,
+  defect_cleared_by_date,
+  defect_cleared_by,
+  odometer_open,
+  hours_open,
+  closed,
+  date_closed,
+  hours_closed,
+  odometer_closed,
+  purchase_order,
+  location,
+  created_at,
+  site,
+  tyre_items.tyre_types,
+  tyre_items.problem,
+  tyre_items.notes,
+  tyre_items.repairer_notes,
+  tyre_items.invoice,
+  tyre_items.cost,
+  tyre_items.tax,
+  tyre_items.date_closed,
+  tyre_items.odometer_closed,
+  tyre_items.hours_closed,
+  tyre_items.status,
+  tyre_items.priority,
+  repairers.rep_name,
+  repairers.code,
+  tyre_items.assigned_user,
+  tyre_items.general_ledger_code,
+  parts.part_number,
+  parts.quantity,
+  parts.each,
+  parts.total
 </details>
 
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/repairs
+URL: https://api.gearbox.com.au/public/v1/tyres
 Method: GET
 Authorization: Bearer $ACCESS_TOKEN
 ```
@@ -57,79 +71,60 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "tyres": [
+  "tyres"=>
+  [
     {
-      "id": 1977344012, 
-      "date_reported": "2023-04-13", 
-      "fault": "F-436", 
-      "fleet_number": "CE123M", 
-      "registration": "117ABC", 
-      "reported_to": {
-        "last_name": "Smith", 
-        "first_name": "John", 
-        "employee_id": 401823
-      }, 
-      "reported_by": {
-        "last_name": "Kelly", 
-        "first_name": "Todd", 
-        "employee_id": 437232
-      }, 
-      "location": "SYDNEY", 
-      "job_number": "J-234", 
-      "defect": "Z0832HSA", 
-      "defect_cleared_by_date": "2023-01-12", 
-      "defect_cleared_by": {
-        "code": "ABC123", 
-        "repairer_id": 374203587, 
-        "repairer_name": "AAP"
-      }, 
-      "odometer_open": 500, 
-      "hours_open": 500, 
-      "created_at": "2023-04-18T11:45:35.568+10:00", 
-      "updated_at": "2023-04-18T11:45:36.654+10:00", 
-      "site": "Site Five", 
-      "tyre_items": [
+      "id"=>"10654825", 
+      "tyre_number"=>1, 
+      "date_reported"=>"2023-05-31", 
+      "fault"=>"F-123", 
+      "fleet_number"=>"CBO97M", 
+      "registration"=>"123ABC", 
+      "reported_to"=>"John Smith", 
+      "reported_by"=>"Ned Kelly", 
+      "location"=>"Townsville", 
+      "job_number"=>"12345", 
+      "defect"=>"ABC123", 
+      "defect_cleared_by_date"=>"2023-05-17", 
+      "defect_cleared_by"=>"AAP", 
+      "odometer_open"=>500, 
+      "hours_open"=>500, 
+      "created_at"=>"2023-06-01T09:50:56.154+10:00", 
+      "site"=>"Example Site", 
+      "tyre_items"=>
+      [
         {
-          "tax": 230.0, 
-          "cost": 2300.0, 
-          "notes": "Example Notes", 
-          "status": 1, 
-          "invoice": "", 
-          "problem": "Gasket leaking", 
-          "priority": 1, 
-          "repairers": [
-            {
-              "code": "ABC123", 
-              "name": "APA"
-            }
-          ], 
-          "date_closed": "2023-04-15" , 
-          "hours_closed": 1234, 
-          "tyre_types": [
-            {
-              "type_label": "#23 Brakes"
-            }
-          ], 
-          "assigned_user": {
-            "user_id": 10327456, 
-            "last_name": "Neutron", 
-            "first_name": "Jimmy"
-          }, 
-          "tyre_item_id": 89321737, 
-          "repairer_notes": "Remaining tasks:...", 
-          "odometer_closed": 0, 
-          "tyre_item_parts": [
-            {
-              "part_num": "Example part", 
-              "quantity": 1.0, 
-              "part_desc": "Example description", 
-              "tyre_item_part_id": 840411104
-            }
-          ], 
-          "general_ledger_code": {
-            "gl_code": "4321", 
-            "description": "GL code example"
-          }
+          "tax"=>10.0, 
+          "cost"=>100.0, 
+          "notes"=>"example notes", 
+          "status"=>"open", 
+          "invoice"=>"NAI14943509", 
+          "problem"=>"example tyre item problem", 
+          "priority"=>"important", 
+          "repairers"=>[
+                        {
+                          "rep_name": "James Woods",
+                          "code":"ABC123"
+                        }
+                        ], 
+          "date_closed"=>"2023-06-01", 
+          "hours_closed"=>1000, 
+          "tyre_types"=>[
+                          {
+                            "type_label": "Broken Valve"
+                          }
+                          ], 
+          "assigned_user"=>"Alex Honnold", 
+          "repairer_notes"=>"example notes", 
+          "odometer_closed"=>1000, 
+          "tyre_item_parts"=>[
+                                  {
+                                    "part_num"=>"Example part", 
+                                    "quantity"=>1.0, 
+                                    "part_desc"=>"Example part description"
+                                  }
+                                ], 
+          "general_ledger_code"=>"7239 - GL code example"
         }
       ]
     }
@@ -140,7 +135,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/repairs' \
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/tyres' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
