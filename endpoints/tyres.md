@@ -71,60 +71,60 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "tyres"=>
+  "tyres": 
   [
     {
-      "id"=>"10654825", 
-      "tyre_number"=>1, 
-      "date_reported"=>"2023-05-31", 
-      "fault"=>"F-123", 
-      "fleet_number"=>"CBO97M", 
-      "registration"=>"123ABC", 
-      "reported_to"=>"John Smith", 
-      "reported_by"=>"Ned Kelly", 
-      "location"=>"Townsville", 
-      "job_number"=>"12345", 
-      "defect"=>"ABC123", 
-      "defect_cleared_by_date"=>"2023-05-17", 
-      "defect_cleared_by"=>"AAP", 
-      "odometer_open"=>500, 
-      "hours_open"=>500, 
-      "created_at"=>"2023-06-01T09:50:56.154+10:00", 
-      "site"=>"Example Site", 
-      "tyre_items"=>
+      "id": "10654825", 
+      "tyre_number": 1, 
+      "date_reported": "2023-05-31", 
+      "fault": "F-123", 
+      "fleet_number": "CBO97M", 
+      "registration": "123ABC", 
+      "reported_to": "John Smith", 
+      "reported_by": "Ned Kelly", 
+      "location": "Townsville", 
+      "job_number": "12345", 
+      "defect": "ABC123", 
+      "defect_cleared_by_date": "2023-05-17", 
+      "defect_cleared_by": "AAP", 
+      "odometer_open": 500, 
+      "hours_open": 500, 
+      "created_at": "2023-06-01T09:50:56.154+10:00", 
+      "site": "Example Site", 
+      "tyre_items": 
       [
         {
-          "tax"=>10.0, 
-          "cost"=>100.0, 
-          "notes"=>"example notes", 
-          "status"=>"open", 
-          "invoice"=>"NAI14943509", 
-          "problem"=>"example tyre item problem", 
-          "priority"=>"important", 
-          "repairers"=>[
+          "tax": 10.0, 
+          "cost": 100.0, 
+          "notes": "example notes", 
+          "status": "open", 
+          "invoice": "NAI14943509", 
+          "problem": "example tyre item problem", 
+          "priority": "important", 
+          "repairers": [
                         {
                           "rep_name": "James Woods",
                           "code":"ABC123"
                         }
                         ], 
-          "date_closed"=>"2023-06-01", 
-          "hours_closed"=>1000, 
-          "tyre_types"=>[
+          "date_closed": "2023-06-01", 
+          "hours_closed": 1000, 
+          "tyre_types": [
                           {
                             "type_label": "Broken Valve"
                           }
                           ], 
-          "assigned_user"=>"Alex Honnold", 
-          "repairer_notes"=>"example notes", 
-          "odometer_closed"=>1000, 
-          "tyre_item_parts"=>[
+          "assigned_user": "Alex Honnold", 
+          "repairer_notes": "example notes", 
+          "odometer_closed": 1000, 
+          "tyre_item_parts": [
                                   {
-                                    "part_num"=>"Example part", 
-                                    "quantity"=>1.0, 
-                                    "part_desc"=>"Example part description"
+                                    "part_num": "Example part", 
+                                    "quantity": 1.0, 
+                                    "part_desc": "Example part description"
                                   }
                                 ], 
-          "general_ledger_code"=>"7239 - GL code example"
+          "general_ledger_code": "7239 - GL code example"
         }
       ]
     }
