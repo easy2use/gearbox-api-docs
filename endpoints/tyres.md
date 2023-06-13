@@ -37,7 +37,7 @@ Please note:
   location,
   created_at,
   site,
-  tyre_items.tyre_types,
+  tyre_items.tyre_types.type,
   tyre_items.problem,
   tyre_items.notes,
   tyre_items.repairer_notes,
@@ -49,14 +49,14 @@ Please note:
   tyre_items.hours_closed,
   tyre_items.status,
   tyre_items.priority,
-  repairers.rep_name,
-  repairers.code,
+  tyre_items.repairers.rep_name,
+  tyre_items.repairers.code,
   tyre_items.assigned_user,
   tyre_items.general_ledger_code,
-  parts.part_number,
-  parts.quantity,
-  parts.each,
-  parts.total
+  tyre_items.parts.part_number,
+  tyre_items.parts.quantity,
+  tyre_items.parts.each,
+  tyre_items.parts.total
 </details>
 
 ### Request
