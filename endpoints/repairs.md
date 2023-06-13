@@ -104,28 +104,29 @@ Authorization: Bearer $ACCESS_TOKEN
           "problem": "example repair item problem", 
           "priority": "important", 
           "repairers": [
-                        {
-                          "rep_name": "James Woods",
-                          "code":"ABC123"
-                        }
+                          {
+                            "name": "James Woods",
+                            "code":"ABC123"
+                          }
                         ], 
           "date_closed": "2023-06-01", 
           "hours_closed": 1000, 
           "repair_types": [
-                          {
-                            "type_label": "Broken Valve"
-                          }
+                            {
+                              "type": "Broken Valve"
+                            }
                           ], 
           "assigned_user": "Alex Honnold", 
           "repairer_notes": "example notes", 
           "odometer_closed": 1000, 
-          "repair_item_parts": [
-                                  {
-                                    "part_num": "Example part", 
-                                    "quantity": 1.0, 
-                                    "part_desc": "Example part description"
-                                  }
-                                ], 
+          "parts": [
+                      {
+                        "each": 100.0,
+                        "total": 1000.0,
+                        "quantity": 1.0, 
+                        "part_number": "Example part"
+                      }
+                    ], 
           "general_ledger_code": "7239 - GL code example"
         }
       ]
