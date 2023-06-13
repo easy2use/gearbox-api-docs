@@ -103,10 +103,10 @@ Authorization: Bearer $ACCESS_TOKEN
           "problem": "example tyre item problem", 
           "priority": "important", 
           "repairers": [
-                        {
-                          "name": "James Woods",
-                          "code":"ABC123"
-                        }
+                          {
+                            "name": "James Woods",
+                            "code":"ABC123"
+                          }
                         ], 
           "date_closed": "2023-06-01", 
           "hours_closed": 1000, 
@@ -114,18 +114,18 @@ Authorization: Bearer $ACCESS_TOKEN
                           {
                             "type": "Broken Valve"
                           }
-                          ], 
+                        ], 
           "assigned_user": "Alex Honnold", 
           "repairer_notes": "example notes", 
           "odometer_closed": 1000, 
           "parts": [
-                                  {
-                                    "each": 100.0,
-                                    "total": 1000.0,
-                                    "quantity": 1.0, 
-                                    "part_number": "Example part"
-                                  }
-                                ], 
+                      {
+                        "each": 100.0,
+                        "total": 1000.0,
+                        "quantity": 1.0, 
+                        "part_number": "Example part"
+                      }
+                    ], 
           "general_ledger_code": "7239 - GL code example"
         }
       ]
