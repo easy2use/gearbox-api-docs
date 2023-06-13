@@ -51,8 +51,8 @@ Please note:
 * repair_items.hours_closed
 * repair_items.status
 * repair_items.priority
-* repairer_items.repairers.name
-* repairer_items.repairers.code
+* repair_items.repairers.name
+* repair_items.repairers.code
 * repair_items.assigned_user
 * repair_items.general_ledger_code
 * repair_items.parts.part_number
