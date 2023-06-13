@@ -104,7 +104,7 @@ Authorization: Bearer $ACCESS_TOKEN
           "priority": "important", 
           "repairers": [
                         {
-                          "rep_name": "James Woods",
+                          "name": "James Woods",
                           "code":"ABC123"
                         }
                         ], 
@@ -112,17 +112,18 @@ Authorization: Bearer $ACCESS_TOKEN
           "hours_closed": 1000, 
           "tyre_types": [
                           {
-                            "type_label": "Broken Valve"
+                            "type": "Broken Valve"
                           }
                           ], 
           "assigned_user": "Alex Honnold", 
           "repairer_notes": "example notes", 
           "odometer_closed": 1000, 
-          "tyre_item_parts": [
+          "parts": [
                                   {
-                                    "part_num": "Example part", 
+                                    "each": 100.0,
+                                    "total": 1000.0,
                                     "quantity": 1.0, 
-                                    "part_desc": "Example part description"
+                                    "part_number": "Example part"
                                   }
                                 ], 
           "general_ledger_code": "7239 - GL code example"
