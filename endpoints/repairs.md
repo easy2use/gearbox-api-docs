@@ -38,7 +38,7 @@ Please note:
     location,
     created_at,
     site,
-    repair_items.repair_types,
+    repair_items.repair_types.type,
     repair_items.problem,
     repair_items.notes,
     repair_items.repairer_notes,
@@ -50,14 +50,14 @@ Please note:
     repair_items.hours_closed,
     repair_items.status,
     repair_items.priority,
-    repairers.rep_name,
-    repairers.code,
+    repairer_items.repairers.name,
+    repairer_items.repairers.code,
     repair_items.assigned_user,
     repair_items.general_ledger_code,
-    parts.part_number,
-    parts.quantity,
-    parts.each,
-    parts.total
+    repair_items.parts.part_number,
+    repair_items.parts.quantity,
+    repair_items.parts.each,
+    repair_items.parts.total
 </details>
 
 ### Request
