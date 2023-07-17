@@ -106,7 +106,7 @@ Authorization: Bearer $ACCESS_TOKEN
   closed: "",      // boolean, optional
   vehicles: [      // array, optional, size must be less than or equal to 5
     {
-      fleet_number: "" // string, optional, must match existing Vehicle fleet number
+      fleet_number: "" // string, optional, must match existing Vehicle fleet number or registration
     }
   ]
 }
@@ -187,7 +187,7 @@ Authorization: Bearer $ACCESS_TOKEN
   closed: "",      // boolean, optional
   vehicles: [      // array, optional, size must be less than or equal to 5
     {
-      fleet_number: "" // string, optional, must match existing Vehicle fleet number
+      fleet_number: "" // string, optional, must match existing Vehicle fleet number or registration
     }
   ]
 }
