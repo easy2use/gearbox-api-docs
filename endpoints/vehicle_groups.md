@@ -24,6 +24,7 @@ Please note:
 - state
 - postcode
 - contact
+- code
 - parts_used_include_tax
 - invoice_header
 - invoice_footer
@@ -55,6 +56,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "state": "NSW",
       "postcode": "2570",
       "contact": "John Smith",
+      "code": "ABC123",
       "parts_used_include_tax": true,
       "invoice_header": "Easy2use",
       "invoice_footer": "PO Box 500",
@@ -100,6 +102,7 @@ Authorization: Bearer $ACCESS_TOKEN
   state: "",                   // string, optional, maximum length 255 characters
   postcode: "",                // string, optional, maximum length 255 characters
   contact: "",                 // string, optional, maximum length 255 characters
+  code: "",                    // string, optional, maximum length 255 characters
   parts_used_include_tax: "",  // boolean, optional, defaults to false
   invoice_header: "",          // string, optional, maximum length 1000 characters
   invoice_footer: "",          // string, optional, maximum length 1000 characters
@@ -142,6 +145,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicle_group
       "state": "NSW",
       "postcode": "2570",
       "contact": "John Smith",
+      "code": "ABC123",
       "parts_used_include_tax": true,
       "invoice_header": "Easy2use",
       "invoice_footer": "PO Box 500",
@@ -177,6 +181,7 @@ Authorization: Bearer $ACCESS_TOKEN
   state: "",                   // string, optional, maximum length 255 characters
   postcode: "",                // string, optional, maximum length 255 characters
   contact: "",                 // string, optional, maximum length 255 characters
+  code: "",                    // string, optional, maximum length 255 characters
   parts_used_include_tax: "",  // boolean, optional, defaults to false
   invoice_header: "",          // string, optional, maximum length 1000 characters
   invoice_footer: "",          // string, optional, maximum length 1000 characters
@@ -220,6 +225,7 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/vehicle_grou
       "state": "NSW",
       "postcode": "2570",
       "contact": "John Smith",
+      "code": "ABC123",
       "parts_used_include_tax": true,
       "invoice_header": "Easy2use",
       "invoice_footer": "PO Box 500",
