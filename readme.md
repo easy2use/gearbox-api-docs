@@ -35,6 +35,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Inspections](endpoints/inspections.md)
 - [Contractors](endpoints/contractors.md)
 - [Employees](endpoints/employees.md)
+- [Vehicle Groups](endpoints/vehicle_groups.md)
 - [Sites](endpoints/sites.md)
 
 ## Pagination
