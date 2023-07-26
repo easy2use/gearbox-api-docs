@@ -202,15 +202,13 @@ Authorization: Bearer $ACCESS_TOKEN
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
-  allocation: [               // array, optional, maximum size of 1
-    {
-      operator: "",           // string, optional, must match an existing Employee
-      operator_number: "",    // string, optional, if there are multiple employees with the same name you may use this field to specify your search
-      site: "",               // string, optional, must match an existing Site
-      hourly_rate: "",        // decimal, optional, maximum size 2,147,483,648 with precision of 2
-      day_rate: ""            // decimal, optional, maximum size 2,147,483,648 with precision of 2
-    }
-  ]
+  allocation: {
+    operator: "",             // string, optional, must match an existing Employee
+    operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+    site: "",                 // string, optional, must match an existing Site
+    hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
+    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
+  }
 }
 ```
 
@@ -313,15 +311,13 @@ Authorization: Bearer $ACCESS_TOKEN
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
-  allocation: [               // array, optional, maximum size of 1
-    {
-      operator: "",           // string, optional, must match an existing Employee
-      operator_number: "",    // string, optional, if there are multiple employees with the same name you may use this field to specify your search
-      site: "",               // string, optional, must match an existing Site
-      hourly_rate: "",        // decimal, optional, maximum size 2,147,483,648 with precision of 2
-      day_rate: ""            // decimal, optional, maximum size 2,147,483,648 with precision of 2
-    }
-  ]
+  allocation: {
+    operator: "",             // string, optional, must match an existing Employee
+    operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+    site: "",                 // string, optional, must match an existing Site
+    hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
+    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
+  }
 }
 ```
 
