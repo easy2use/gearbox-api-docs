@@ -122,14 +122,12 @@ Authorization: Bearer $ACCESS_TOKEN
       "make": "Honda", 
       "configuration": "'A' Skel", 
       "contractor": "Test Contractor",
-      "allocation": [
-        {
-          "site": "Sydney",
-          "operator": "John Smith",
-          "hourly_rate": 20.50,
-          "day_rate": 200.10
-        }
-      ]
+      "allocation": {
+        "site": "Sydney",
+        "operator": "John Smith",
+        "hourly_rate": 20.50,
+        "day_rate": 200.10
+      }
     }
   ]
 }
