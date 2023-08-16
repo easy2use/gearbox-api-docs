@@ -60,6 +60,7 @@ Please note:
 - make
 - configuration
 - contractor
+- allocation.status
 - allocation.operator
 - allocation.site
 - allocation.hourly_rate
@@ -123,6 +124,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "configuration": "'A' Skel", 
       "contractor": "Test Contractor",
       "allocation": {
+        "status": "In Service",
         "site": "Sydney",
         "operator": "John Smith",
         "hourly_rate": 20.50,
@@ -201,6 +203,7 @@ Authorization: Bearer $ACCESS_TOKEN
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
   allocation: {
+    status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
     operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
     site: "",                 // string, optional, must match an existing Site
@@ -310,6 +313,7 @@ Authorization: Bearer $ACCESS_TOKEN
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
   allocation: {
+    status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
     operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
     site: "",                 // string, optional, must match an existing Site
