@@ -60,6 +60,11 @@ Please note:
 - make
 - configuration
 - contractor
+- allocation.status
+- allocation.operator
+- allocation.site
+- allocation.hourly_rate
+- allocation.day_rate
 </details>
 
 ### Request
@@ -117,7 +122,14 @@ Authorization: Bearer $ACCESS_TOKEN
       "type": "Car", 
       "make": "Honda", 
       "configuration": "'A' Skel", 
-      "contractor": "Test Contractor"
+      "contractor": "Test Contractor",
+      "allocation": {
+        "status": "In Service",
+        "site": "Sydney",
+        "operator": "John Smith",
+        "hourly_rate": 20.50,
+        "day_rate": 200.10
+      }
     }
   ]
 }
@@ -189,7 +201,15 @@ Authorization: Bearer $ACCESS_TOKEN
   engine_capacity: "",        // string, optional, maximum length 50 characters
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
-  contractor: ""              // string, optional, must match existing Contractor
+  contractor: "",             // string, optional, must match existing Contractor
+  allocation: {
+    status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
+    operator: "",             // string, optional, must match an existing Employee
+    operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+    site: "",                 // string, optional, must match an existing Site
+    hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
+    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
+  }
 }
 ```
 
@@ -291,7 +311,15 @@ Authorization: Bearer $ACCESS_TOKEN
   engine_capacity: "",        // string, optional, maximum length 50 characters
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
-  contractor: ""              // string, optional, must match existing Contractor
+  contractor: "",             // string, optional, must match existing Contractor
+  allocation: {
+    status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
+    operator: "",             // string, optional, must match an existing Employee
+    operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+    site: "",                 // string, optional, must match an existing Site
+    hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
+    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
+  }
 }
 ```
 
