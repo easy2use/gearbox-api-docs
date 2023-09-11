@@ -64,7 +64,6 @@ Please note:
 - allocation.operator
 - allocation.site
 - allocation.hourly_rate
-- allocation.day_rate
 </details>
 
 ### Request
@@ -127,8 +126,7 @@ Authorization: Bearer $ACCESS_TOKEN
         "status": "In Service",
         "site": "Sydney",
         "operator": "John Smith",
-        "hourly_rate": 20.50,
-        "day_rate": 200.10
+        "hourly_rate": 20.50
       }
     }
   ]
@@ -208,7 +206,6 @@ Authorization: Bearer $ACCESS_TOKEN
     operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
     site: "",                 // string, optional, must match an existing Site
     hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
-    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
   }
 }
 ```
@@ -318,7 +315,6 @@ Authorization: Bearer $ACCESS_TOKEN
     operator_number: "",      // string, optional, if there are multiple employees with the same name you may use this field to specify your search
     site: "",                 // string, optional, must match an existing Site
     hourly_rate: "",          // decimal, optional, maximum size 2,147,483,648 with precision of 2
-    day_rate: ""              // decimal, optional, maximum size 2,147,483,648 with precision of 2
   }
 }
 ```
