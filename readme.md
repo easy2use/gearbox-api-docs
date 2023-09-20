@@ -83,6 +83,12 @@ Example: closed A services assigned to vehicle with fleet number PM01
 
 `GET http://api.gearbox.com.au/public/v1/services?filter=service_type eq 'A' AND fleet_number eq 'PM01' AND closed eq true`
 
+In the case of a logical operator being present in the query string, wrap the query string in double-quotes (") and the logical operator in single-quotes (')
+
+Example: Contractors with company name 'Trucks and Co.' or 'Or Contracting'
+
+`GET http://api.gearbox.com.au/public/v1/contractors?filter=company_name eq "Trucks 'and' Co." OR company_name eq "'Or' Contracting"`
+
 **Please note**: Not all endpoints support filtering. Please check the endpoints documentation before using this query string.
 
 ## Handling errors
