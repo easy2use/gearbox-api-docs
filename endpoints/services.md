@@ -17,6 +17,7 @@ Please note:
 <br>
   
 - id
+- vehicle_id
 - fleet_number
 - registration
 - service_type
@@ -39,6 +40,7 @@ Please note:
 - date_scheduled
 - date_scheduled_end
 - created_at
+- updated_at
 - site
 - general_ledger_code
 - parts.part_number
@@ -63,6 +65,8 @@ Authorization: Bearer $ACCESS_TOKEN
 {
   "services": [
     {
+      "id": 5678,
+      "vehicle_id": 321,
       "fleet_number": "PM05",
       "registration": "PM005",
       "service_type": "B",
@@ -98,6 +102,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "date_scheduled": "2020-01-22T06:00:00.000+11:00",
       "date_scheduled_end": "2020-01-22T07:30:00.000+11:00",
       "created_at": "2020-01-22T07:30:00.000+11:00",
+      "updated_at": "2020-01-22T07:30:00.000+11:00",
       "site": "Sydney",
       "general_ledger_code": "ABC123 - Maintenance",
       "parts": [
