@@ -23,8 +23,8 @@ Authorization: Bearer $ACCESS_TOKEN
   fleet_number: "", // string, required if registration is blank, must match existing fleet number in the system
   registration: "", // string, required if fleet_number is blank, must match existing registration in the system
   date: "",         // date, required, format: 'yyyy-mm-dd'
-  odometer: "",     // integer, required if hours is blank
-  hours: ""         // integer, required if odometer is blank
+  odometer: 0,      // integer, required if hours is blank
+  hours: 0          // integer, required if odometer is blank
 }
 ```
 
