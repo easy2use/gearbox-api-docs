@@ -113,7 +113,8 @@ Authorization: Bearer $ACCESS_TOKEN
             "invoice_number": "INV-5546",
             "part_description": "Kenworth Oil Filter",
             "received_quantity": 1,
-            "general_ledger_code": "ABC123 - PO Code"
+            "general_ledger_code": "ABC123 - PO Code",
+            "tax_rate": "Inclusive"
         }
       ]
     }
