@@ -37,7 +37,6 @@ Please note:
 * service_number
 * repair_number
 * tyre_number
-* inspection_number
 * other_number
 * general_ledger_code
 * actual_cost
@@ -93,7 +92,6 @@ Authorization: Bearer $ACCESS_TOKEN
       "service_number": 489,
       "repair_number": 987,
       "tyre_number": 123,
-      "inspection_number": 556,
       "other_number": 8844,
       "supplier": "Trucks R Us",
       "general_ledger_code": "ABC123 - PO Code",
@@ -168,7 +166,6 @@ Authorization: Bearer $ACCESS_TOKEN
   service_number: ,        // integer, optional, must match existing Service number in the system
   repair_number: ,         // integer, optional, must match existing Repair number in the system
   tyre_number: ,           // integer, optional, must match existing Tyre number in the system
-  inspection_number: ,     // integer, optional, must match existing Inspection number in the system
   other_number: ,          // integer, optional, must match existing Other number in the system
   general_ledger_code: "", // string, optional, if a general ledger code match is not found than an error is thrown
   actual_cost: 0.0,        // float, optional, format: 100.00 - this will be calculated based on totals from purchase order items
@@ -241,7 +238,6 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/purchase_or
   "service_number": "",
   "repair_number": "",
   "tyre_number": "",
-  "inspection_number": "",
   "other_number": "",
   "general_ledger_code": "5000-10",
   "actual_cost": 1000,
