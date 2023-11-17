@@ -38,6 +38,10 @@ Please note:
 - approved
 - code
 - emails
+
+`emails` supports searching a comma-separated list of emails, e.g. `emails eq test@test.com, example@example.com`
+
+`emails` only supports the `eq` operator, an error will be returned if another operator is used with this field
 </details>
 
 ### Request

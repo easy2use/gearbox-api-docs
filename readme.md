@@ -85,6 +85,10 @@ Example: closed A services assigned to vehicle with fleet number PM01
 
 `GET http://api.gearbox.com.au/public/v1/services?filter=service_type eq 'A' AND fleet_number eq 'PM01' AND closed eq true`
 
+Example: repairers with emails test@test.com and example@example.com
+
+`GET http://api.gearbox.com.au/public/v1/repairers?filter=emails eq 'test@test.com, example@example.com'`
+
 **Please note**: Not all endpoints support filtering. Please check the endpoints documentation before using this query string.
 
 ## Handling errors
