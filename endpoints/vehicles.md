@@ -60,6 +60,7 @@ Please note:
 - make
 - configuration
 - contractor
+- owner
 - allocation.status
 - allocation.operator
 - allocation.site
@@ -122,6 +123,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "make": "Honda", 
       "configuration": "'A' Skel", 
       "contractor": "Test Contractor",
+      "owner": "Gearbox Transport",
       "allocation": {
         "status": "In Service",
         "site": "Sydney",
@@ -200,6 +202,7 @@ Authorization: Bearer $ACCESS_TOKEN
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
+  owner: "",                  // string, optional, must match existing Vehicle Owner
   allocation: {
     status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
@@ -309,6 +312,7 @@ Authorization: Bearer $ACCESS_TOKEN
   gearbox: "",                // string, optional, maximum length 50 characters
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
+  owner: "",                  // string, optional, must match existing Vehicle Owner
   allocation: {
     status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
