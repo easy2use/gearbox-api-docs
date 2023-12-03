@@ -149,13 +149,17 @@ Authorization: Bearer $ACCESS_TOKEN
   employee_number: "",    // string, optional, must be unique
   job_title: "",          // string, optional, maximum length 45 characters
   phone: "",              // string, optional, maximum length is 20 characters
-  mobile: "",             // string, optional, maximum length is 20 characters
+  mobile: "",             // string, optional, maximum length is 20 characters, must be unique
   email: "",              // string, optional, maximum length is 50 characters
   address1: "",           // string, optional, maximum length 45 characters
   address2: "",           // string, optional, maximum length 45 characters
   city: "",               // string, optional, maximum length 45 characters
   state: "",              // string, optional, maximum length 5 characters
   post_code: "",          // string, optional, maximum length 5 characters
+  notes: "",              // string, optional
+  terminated: "",         // boolean, optional, defaults to false
+  next_of_kin: "",        // string, optional
+  next_of_kin_number: "", // string, optional
   licence: "",            // string, optional, maximum length 15 characters
   licence_category: "",   // string, optional, maximum length 50 characters
   subcontractor: "",      // string, optional
