@@ -108,3 +108,7 @@ If you exceed this limit you will receive a 429 response with a `Retry-After` he
 ### 5xx server errors
 
 If Gearbox is having trouble, you will get a response with a 5xx status code indicating a server error. 500 (Internal Server Error), 502 (Bad Gateway) and 504 (Gateway Timeout) may be retried with exponential backoff.
+
+### Postman
+
+A [Postman collection](Gearbox_API_(PROD).postman_collection.json) is provided with samples to assist
