@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "e99eedeb-7ab3-48fa-bd66-7a7ab224adc5",
+		"name": "Gearbox API (PROD)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26619500"
+	},
+	"item": [
+		{
+			"name": "Oauth token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<CLIENT ID>",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "<SECRET>",
+							"type": "text"
+						},
+						{
+							"key": "business_token",
+							"value": "<BUSINESS TOKEN>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/oauth/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Vehicle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"registration\": \"ABC123\",\n    \"service_group\": \"Trucks\",\n    \"group\": \"\"\n}"
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/vehicles",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Site",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"label\": \"\",\n    \"date_open\": \"\",\n    \"address1\": \"\",\n    \"city\": \"\",\n    \"postcode\": \"\",\n    \"notes\": \"\",\n    \"closed\": false\n}"
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/sites",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"sites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Vehicle",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"registration\": \"ABC123\",\n    \"service_group\": \"Trucks\",\n    \"group\": \"\"\n}"
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/vehicles/<VEHICLE_ID>",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"vehicles",
+						"<VEHICLE_ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Site",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"closed\": false\n}"
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/sites/<SITE ID>",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"sites",
+						"<SITE ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Vehicles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/vehicles",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Purchase Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/purchase_orders",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"purchase_orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Fault Reports",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.gearbox.com.au/public/v1/fault_reports?filter=created_at gt 2023-09-25T13:23:34",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"public",
+						"v1",
+						"fault_reports"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "created_at gt 2023-09-25T13:23:34"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
