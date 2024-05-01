@@ -31,10 +31,6 @@ Please note:
 * defect_cleared_by
 * odometer_open
 * hours_open
-* closed
-* date_closed
-* hours_closed
-* odometer_closed
 * purchase_order
 * location
 * created_at
