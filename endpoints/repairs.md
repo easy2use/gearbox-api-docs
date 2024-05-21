@@ -16,49 +16,45 @@ Please note:
 <summary>Filter attributes names</summary>
 <br>
 
-* id
-* vehicle
-* fault
-* fleet_number
-* registration
-* repair_number
-* reported_to
-* reported_by
-* date_reported
-* job_number
-* defect
-* defect_cleared_by_date
-* defect_cleared_by
-* odometer_open
-* hours_open
-* closed
-* date_closed
-* hours_closed
-* odometer_closed
-* purchase_order
-* location
-* created_at
-* site
-* repair_items.repair_types.type
-* repair_items.problem
-* repair_items.notes
-* repair_items.repairer_notes
-* repair_items.invoice
-* repair_items.cost
-* repair_items.tax
-* repair_items.date_closed
-* repair_items.odometer_closed
-* repair_items.hours_closed
-* repair_items.status
-* repair_items.priority
-* repair_items.repairers.name
-* repair_items.repairers.code
-* repair_items.assigned_user
-* repair_items.general_ledger_code
-* repair_items.parts.part_number
-* repair_items.parts.quantity
-* repair_items.parts.each
-* repair_items.parts.total
+- id
+- vehicle
+- fault
+- fleet_number
+- registration
+- repair_number
+- reported_to
+- reported_by
+- date_reported
+- job_number
+- defect
+- defect_cleared_by_date
+- defect_cleared_by
+- odometer_open
+- hours_open
+- purchase_order
+- location
+- created_at
+- site
+- repair_items.repair_types.type
+- repair_items.problem
+- repair_items.notes
+- repair_items.repairer_notes
+- repair_items.invoice
+- repair_items.cost
+- repair_items.tax
+- repair_items.date_closed
+- repair_items.odometer_closed
+- repair_items.hours_closed
+- repair_items.status
+- repair_items.priority
+- repair_items.repairers.name
+- repair_items.repairers.code
+- repair_items.assigned_user
+- repair_items.general_ledger_code
+- repair_items.parts.part_number
+- repair_items.parts.quantity
+- repair_items.parts.each
+- repair_items.parts.total
 </details>
 
 ### Request
@@ -73,60 +69,60 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "repairs": 
+  "repairs":
   [
     {
-      "id": "10654825", 
-      "repair_number": 1, 
-      "date_reported": "2023-05-31", 
-      "fault": "F-123", 
-      "fleet_number": "CBO97M", 
-      "registration": "123ABC", 
-      "reported_to": "John Smith", 
-      "reported_by": "Ned Kelly", 
-      "location": "Townsville", 
-      "job_number": "12345", 
-      "defect": "ABC123", 
-      "defect_cleared_by_date": "2023-05-17", 
-      "defect_cleared_by": "AAP", 
-      "odometer_open": 500, 
-      "hours_open": 500, 
-      "created_at": "2023-06-01T09:50:56.154+10:00", 
-      "site": "Example Site", 
-      "repair_items": 
+      "id": "10654825",
+      "repair_number": 1,
+      "date_reported": "2023-05-31",
+      "fault_number": "F-123",
+      "fleet_number": "CBO97M",
+      "registration": "123ABC",
+      "reported_to": "John Smith",
+      "reported_by": "Ned Kelly",
+      "location": "Townsville",
+      "job_number": "12345",
+      "defect": "ABC123",
+      "defect_cleared_by_date": "2023-05-17",
+      "defect_cleared_by": "AAP",
+      "odometer_open": 500,
+      "hours_open": 500,
+      "created_at": "2023-06-01T09:50:56.154+10:00",
+      "site": "Example Site",
+      "repair_items":
       [
         {
-          "tax": 10.0, 
-          "cost": 100.0, 
-          "notes": "example notes", 
-          "status": "open", 
-          "invoice": "NAI14943509", 
-          "problem": "example repair item problem", 
-          "priority": "important", 
+          "tax": 10.0,
+          "cost": 100.0,
+          "notes": "example notes",
+          "status": "open",
+          "invoice": "NAI14943509",
+          "problem": "example repair item problem",
+          "priority": "important",
           "repairers": [
                           {
                             "name": "James Woods",
                             "code":"ABC123"
                           }
-                        ], 
-          "date_closed": "2023-06-01", 
-          "hours_closed": 1000, 
+                        ],
+          "date_closed": "2023-06-01",
+          "hours_closed": 1000,
           "repair_types": [
                             {
                               "type": "Broken Valve"
                             }
-                          ], 
-          "assigned_user": "Alex Honnold", 
-          "repairer_notes": "example notes", 
-          "odometer_closed": 1000, 
+                          ],
+          "assigned_user": "Alex Honnold",
+          "repairer_notes": "example notes",
+          "odometer_closed": 1000,
           "parts": [
                       {
                         "each": 100.0,
                         "total": 1000.0,
-                        "quantity": 1.0, 
+                        "quantity": 1.0,
                         "part_number": "Example part"
                       }
-                    ], 
+                    ],
           "general_ledger_code": "7239 - GL code example"
         }
       ]

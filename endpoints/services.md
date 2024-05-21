@@ -72,7 +72,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "service_type": "B",
       "service_type_alias": "Oil and Filters",
       "service_number": 123,
-      "fault_num": "FB456",
+      "fault_number": "FB456",
       "date_open": "2020-01-14",
       "odometer_scheduled": 1000000,
       "hours_scheduled": 100,
