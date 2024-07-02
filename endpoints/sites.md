@@ -158,7 +158,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/sites \
 
 ## Update a site
 
-`PATCH /public/v1/sites/:id` updates the vehicle with the provided `:id`.
+`PATCH /public/v1/sites/:id` updates the site with the provided `:id`.
 
 Please note:
 
