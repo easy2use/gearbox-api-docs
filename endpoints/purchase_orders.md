@@ -271,7 +271,8 @@ Please note:
 
 - Content-Type header `Content-Type: application/json` is required when PATCHing purchase orders into Gearbox.
 - Snake case object keys are required.
-- You cannot update purchase order items, you can only add new ones
+- Providing an existing purchase order item with its id will update that purchase order item.
+- Providing a purchase order item with no id will create a new purchase order item.
 
 ### Request
 
@@ -309,6 +310,7 @@ Authorization: Bearer $ACCESS_TOKEN
   tax_rate: "",            // string, optional, must be either Inclusive, Exclusive or Not Applicable. Automatically calculated if not present.
   purchase_order_items: [  // array, required, size must be less than or equal to 10
     {
+        id: 1                    // integer, optional, required to update a purchase order item - will create a new purchase order item if it is not present
         tax: 0.0,                // float, optional, format: 100.00
         each: 0.0,               // float, optional, format: 100.00
         site: "",                // string, optional, if a site match is not found than an error is thrown
@@ -348,6 +350,65 @@ Authorization: Bearer $ACCESS_TOKEN
 ```
 
 ###### Example
+
+<details>
+<summary>Updating purchase order and creating new purchase order item</summary>
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "purchase_order_date": "2019-01-01",
+  "created_by": "John Smith",
+  "approved": true,
+  "approved_by": "Jane Doe",
+  "approved_date": "2019-01-01",
+  "reference_number": "123456",
+  "supplier": "Trucks R Us",
+  "invoice_number": "123456",
+  "invoice_date": "2019-01-01",
+  "instructions": "Please deliver to the back door",
+  "closed": true,
+  "cost": 1000,
+  "tax": 100,
+  "bulk_receive_date": "2019-01-01",
+  "fleet_number": "PM001",
+  "registration": "ABC123",
+  "group": "Sydney",
+  "service_number": "",
+  "repair_number": "",
+  "tyre_number": "",
+  "other_number": "",
+  "general_ledger_code": "5000-10",
+  "actual_cost": 1000,
+  "actual_tax": 100,
+  "purchase_order_items": [
+    {
+      "id": 1,
+      "part_number": "FAD-4455",
+      "part_description": "Oil Filter",
+      "quantity": 1,
+      "each": 50,
+      "total": 50,
+      "received_quantity": 1,
+      "invoice_date": "2019-01-01",
+      "invoice": "123456",
+      "tax": 10,
+      "site": "Sydney",
+      "general_ledger_code": "5000-10",
+      "tax_percent": 10,
+      "tax_rate": "Inclusive"
+    }
+  ]
+}'
+```
+
+</details>
+
+<details>
+<summary>Updating purchase order and updating purchase order item</summary>
 
 ```
 curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
@@ -398,6 +459,8 @@ curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_o
   ]
 }'
 ```
+
+</details>
 
 ## Create purchase order documents
 
