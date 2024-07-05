@@ -462,6 +462,29 @@ curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_o
 
 </details>
 
+<details>
+<summary>Updating purchase order and purchase order to clear attributes</summary>
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "reference_number": "",
+  "purchase_order_items": [
+    {
+      "id": 1,
+      "site": "",
+    }
+  ]
+}'
+```
+
+Keys not present in the payload will not be cleared
+
+</details>
+
 ## Create purchase order documents
 
 `POST /public/v1/purchase_orders/:id/documents` creates a document attaching it to a provided purchase order `:id`.
