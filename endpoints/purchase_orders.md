@@ -463,7 +463,7 @@ curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_o
 </details>
 
 <details>
-<summary>Updating purchase order and purchase order to clear attributes</summary>
+<summary>Updating purchase order and purchase order items to clear attributes</summary>
 
 ```
 curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
