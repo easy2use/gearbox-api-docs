@@ -386,7 +386,6 @@ curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_o
   "actual_tax": 100,
   "purchase_order_items": [
     {
-      "id": 1,
       "part_number": "FAD-4455",
       "part_description": "Oil Filter",
       "quantity": 1,
@@ -442,6 +441,7 @@ curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_o
   "actual_tax": 100,
   "purchase_order_items": [
     {
+      "id": 1,
       "part_number": "FAD-4455",
       "part_description": "Oil Filter",
       "quantity": 1,
