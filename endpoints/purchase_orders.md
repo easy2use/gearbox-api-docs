@@ -2,6 +2,7 @@
 
 - [Get purchase orders](#get-purchase-orders)
 - [Create purchase orders](#create-purchase-orders)
+- [Update a purchase order](#update-a-purchase-order)
 - [Create purchase order documents](#create-purchase-order-documents)
 
 ## Get purchase orders
@@ -261,6 +262,228 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/purchase_or
   ]
 }'
 ```
+
+## Update a purchase order
+
+`PATCH /public/v1/purchase_orders/:id` updates the purchase order with the provided `:id`.
+
+Please note:
+
+- Content-Type header `Content-Type: application/json` is required when PATCHing purchase orders into Gearbox.
+- Snake case object keys are required.
+- Providing an existing purchase order item with its id will update that purchase order item.
+- Providing a purchase order item with no id will create a new purchase order item.
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/purchase_orders/1
+Method: PATCH
+Content-Type: application/json
+Authorization: Bearer $ACCESS_TOKEN
+
+{
+  purchase_order_date: "", // date, required, format: 'yyyy-mm-dd'
+  supplier: "",            // string, required, must match existing Repairer in the system
+  created_by: "",          // string, optional, must match existing User in the system
+  approved: "",            // boolean, optional, defaults to false
+  approved_by: "",         // string, optional, must match existing User in the system. Required if approved is true.
+  approved_date: "",       // date, optional, format: 'yyyy-mm-dd'. Required if approved is true.
+  reference_number: "",    // string, optional, maximum length of 20 characters
+  invoice_number: "",      // string, optional, maximum length of 20 characters
+  invoice_date: "",        // date, optional, format: 'yyyy-mm-dd'
+  instructions: "",        // text, optional
+  closed: "",              // boolean, optional, defaults to false
+  cost: 0.0,               // float, optional, format: 100.00 - this will be calculated based on totals from purchase order items
+  tax: 0.0,                // float, optional, format: 100.00 - this will be calculated based on totals from purchase order items
+  bulk_receive_date: "",   // date, optional, format: 'yyyy-mm-dd'
+  fleet_number: "",        // string, optional, must match existing fleet number in the system
+  registration: "",        // string, optional, must match existing registration in the system
+  group: "",               // string, optional, must match existing Vehicle Group in the system
+  service_number: ,        // integer, optional, must match existing Service number in the system
+  repair_number: ,         // integer, optional, must match existing Repair number in the system
+  tyre_number: ,           // integer, optional, must match existing Tyre number in the system
+  other_number: ,          // integer, optional, must match existing Other number in the system
+  general_ledger_code: "", // string, optional, if a general ledger code match is not found than an error is thrown
+  actual_cost: 0.0,        // float, optional, format: 100.00 - this will be calculated based on totals from purchase order items
+  actual_tax: 0.0,         // float, optional, format: 100.00 - this will be calculated based on totals from purchase order items
+  tax_rate: "",            // string, optional, must be either Inclusive, Exclusive or Not Applicable. Automatically calculated if not present.
+  purchase_order_items: [  // array, required, size must be less than or equal to 10
+    {
+        id: 1                    // integer, optional, required to update a purchase order item - will create a new purchase order item if it is not present
+        tax: 0.0,                // float, optional, format: 100.00
+        each: 0.0,               // float, optional, format: 100.00
+        site: "",                // string, optional, if a site match is not found than an error is thrown
+        total: 0.0,              // float, optional, format: 100.00
+        quantity: 0.0,           // float, optional, format: 100.00
+        part_number: "",         // string, optional, if a match is not found a new Part will be created
+        tax_percent: 0.0,        // float, optional, format: 100.00
+        invoice_date: "",        // date, optional, format: 'yyyy-mm-dd'
+        invoice_number: "",      // string, optional, maximum length of 20 characters
+        part_description: "",    // string, optional
+        received_quantity: 0,    // float, optional, format: 100.00
+        general_ledger_code: "", // string, optional, if a general ledger code match is not found than an error is thrown
+        tax_rate: ""             // string, optional, must be either Inclusive, Exclusive or Not Applicable. Automatically calculated if not present.
+    }
+  ]
+}
+```
+
+### Response status codes:
+
+- 200: OK
+- 400: Bad Request
+- 401: Unauthorised
+- 403: Forbidden
+- 404: Not Found
+- 413: Request Entity Too Large
+- 415: Unsupported media type
+- 422: Unprocessable Entity
+
+### 200 - Successful response
+
+```JSON
+{
+  "id": 123,
+  "purchase_order_item_ids": [123, 124]
+}
+```
+
+###### Example
+
+<details>
+<summary>Updating purchase order and creating new purchase order item</summary>
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "purchase_order_date": "2019-01-01",
+  "created_by": "John Smith",
+  "approved": true,
+  "approved_by": "Jane Doe",
+  "approved_date": "2019-01-01",
+  "reference_number": "123456",
+  "supplier": "Trucks R Us",
+  "invoice_number": "123456",
+  "invoice_date": "2019-01-01",
+  "instructions": "Please deliver to the back door",
+  "closed": true,
+  "cost": 1000,
+  "tax": 100,
+  "bulk_receive_date": "2019-01-01",
+  "fleet_number": "PM001",
+  "registration": "ABC123",
+  "group": "Sydney",
+  "service_number": "",
+  "repair_number": "",
+  "tyre_number": "",
+  "other_number": "",
+  "general_ledger_code": "5000-10",
+  "actual_cost": 1000,
+  "actual_tax": 100,
+  "purchase_order_items": [
+    {
+      "part_number": "FAD-4455",
+      "part_description": "Oil Filter",
+      "quantity": 1,
+      "each": 50,
+      "total": 50,
+      "received_quantity": 1,
+      "invoice_date": "2019-01-01",
+      "invoice": "123456",
+      "tax": 10,
+      "site": "Sydney",
+      "general_ledger_code": "5000-10",
+      "tax_percent": 10,
+      "tax_rate": "Inclusive"
+    }
+  ]
+}'
+```
+
+</details>
+
+<details>
+<summary>Updating purchase order and updating purchase order item</summary>
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "purchase_order_date": "2019-01-01",
+  "created_by": "John Smith",
+  "approved": true,
+  "approved_by": "Jane Doe",
+  "approved_date": "2019-01-01",
+  "reference_number": "123456",
+  "supplier": "Trucks R Us",
+  "invoice_number": "123456",
+  "invoice_date": "2019-01-01",
+  "instructions": "Please deliver to the back door",
+  "closed": true,
+  "cost": 1000,
+  "tax": 100,
+  "bulk_receive_date": "2019-01-01",
+  "fleet_number": "PM001",
+  "registration": "ABC123",
+  "group": "Sydney",
+  "service_number": "",
+  "repair_number": "",
+  "tyre_number": "",
+  "other_number": "",
+  "general_ledger_code": "5000-10",
+  "actual_cost": 1000,
+  "actual_tax": 100,
+  "purchase_order_items": [
+    {
+      "id": 1,
+      "part_number": "FAD-4455",
+      "part_description": "Oil Filter",
+      "quantity": 1,
+      "each": 50,
+      "total": 50,
+      "received_quantity": 1,
+      "invoice_date": "2019-01-01",
+      "invoice": "123456",
+      "tax": 10,
+      "site": "Sydney",
+      "general_ledger_code": "5000-10",
+      "tax_percent": 10,
+      "tax_rate": "Inclusive"
+    }
+  ]
+}'
+```
+
+</details>
+
+<details>
+<summary>Updating purchase order and purchase order items to clear attributes</summary>
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/purchase_orders/1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+  "reference_number": "",
+  "purchase_order_items": [
+    {
+      "id": 1,
+      "site": "",
+    }
+  ]
+}'
+```
+
+Keys not present in the payload will not be cleared
+
+</details>
 
 ## Create purchase order documents
 
