@@ -179,7 +179,7 @@ Authorization: Bearer $ACCESS_TOKEN
   service_group: "",          // string, required, must match existing Service Group
   registration: "",           // string, optional, maximum length 12 characters
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
-  registration_state: "",     // string, optional, maximum length 5 characters
+  registration_state: "",     // string, optional, must be either ACT, FED, NSW, QLD, NT, SA, TAS, VIC, or WA
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
   sub_group: "",              // string, optional, must match existing Vehicle Group
