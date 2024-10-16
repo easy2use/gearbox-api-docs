@@ -6,7 +6,7 @@
 
 ## Get notes
 
-`GET /public/v1/vehicles/notes` retrieves a [paginated list](../readme.md/#pagination) of notes.
+`GET /public/v1/vehicles/:vehicle_id/notes` retrieves a [paginated list](../readme.md/#pagination) of notes.
 
 Please note:
 
@@ -27,7 +27,7 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/vehicles/notes
+URL: https://api.gearbox.com.au/public/v1/vehicles/:vehicle_id/notes
 Method: GET
 Authorization: Bearer $ACCESS_TOKEN
 ```
@@ -52,14 +52,14 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/vehicles/notes' \
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/vehicles/123/notes' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
 
-## Create vehicles
+## Create notes
 
-`POST /public/v1/vehicles/notes` creates a new vehicle note with the provided information.
+`POST /public/v1/vehicles/:vehicle_id/notes` creates a new vehicle note with the provided information.
 
 Please note:
 
@@ -69,13 +69,12 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/vehicles/notes
+URL: https://api.gearbox.com.au/public/v1/vehicles/:vehicle_id/notes
 Method: POST
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
 
 {
-  fleet_number: "",           // string, required, maximum length 12 characters, must match existing fleet number in system
   user: "",                   // string, required
   comment: "",                // string, required, maximum length 255 character
 }
@@ -101,12 +100,13 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles \
+curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles/123/notes \
 --header "Content-Type: application/json" \
---header "Authorization: Bearer $ACCESS_TOKEN" \
+--header "Authorization: Bearer 333" \
 --data '{
-      "fleet_number": "ABC123",
+    "note": {
       "user": "Jane Doe",
       "comment": "Vehicle note"
-    }' 
+    }
+  }'
 ```
