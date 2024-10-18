@@ -23,6 +23,7 @@ Please note:
 - service_group
 - registration
 - registration_due_date
+- registration_state
 - unregistered
 - model
 - vin
@@ -61,6 +62,12 @@ Please note:
 - configuration
 - contractor
 - owner
+- gcm
+- gvm
+- tare
+- atm
+- leased
+- notes
 - allocation.status
 - allocation.operator
 - allocation.site
@@ -84,7 +91,8 @@ Authorization: Bearer $ACCESS_TOKEN
       "id": 774935874, 
       "fleet_number": "FLT123", 
       "registration": "145ATG", 
-      "registration_due_date": "2024-02-06", 
+      "registration_due_date": "2024-02-06",
+      "registration_state": "NSW",
       "unregistered": false, 
       "model": "Model A", 
       "vin": 12345678901, 
@@ -124,6 +132,12 @@ Authorization: Bearer $ACCESS_TOKEN
       "configuration": "'A' Skel", 
       "contractor": "Test Contractor",
       "owner": "Gearbox Transport",
+      "gcm": 123,
+      "gvm": 123,
+      "tare": 123,
+      "atm": 123,
+      "leased": false,
+      "notes": "",
       "allocation": {
         "status": "In Service",
         "site": "Sydney",
@@ -165,6 +179,7 @@ Authorization: Bearer $ACCESS_TOKEN
   service_group: "",          // string, required, must match existing Service Group
   registration: "",           // string, optional, maximum length 12 characters
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
+  registration_state: "",     // string, optional, must be either ACT, FED, NSW, QLD, NT, SA, TAS, VIC, or WA
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
   sub_group: "",              // string, optional, must match existing Vehicle Group
@@ -203,6 +218,12 @@ Authorization: Bearer $ACCESS_TOKEN
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
   owner: "",                  // string, optional, must match existing Vehicle Owner
+  gcm: "",                    // integer, optional, defaults to nil
+  gvm: "",                    // integer, optional, defaults to nil
+  tare: "",                   // integer, optional, defaults to nil
+  atm: "",                    // integer, optional, defaults to nil
+  leased: "",                 // boolean, optional, defaults to false
+  notes: "",                  // string, optional, maximum length 1000 characters
   allocation: {
     status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
@@ -275,6 +296,7 @@ Authorization: Bearer $ACCESS_TOKEN
   service_group: "",          // string, optional, must match existing Service Group
   registration: "",           // string, optional, maximum length 12 characters
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
+  registration_state: "",     // string, optional, maximum length 5 characters
   unregistered: "",           // boolean, optional, defaults to false
   group: "",                  // string, optional, must match existing Vehicle Group
   sub_group: "",              // string, optional, must match existing Vehicle Group
@@ -313,6 +335,12 @@ Authorization: Bearer $ACCESS_TOKEN
   sold: "",                   // boolean, optional, defaults to false
   contractor: "",             // string, optional, must match existing Contractor
   owner: "",                  // string, optional, must match existing Vehicle Owner
+  gcm: "",                    // integer, optional, defaults to nil
+  gvm: "",                    // integer, optional, defaults to nil
+  tare: "",                   // integer, optional, defaults to nil
+  atm: "",                    // integer, optional, defaults to nil
+  leased: "",                 // boolean, optional, defaults to false
+  notes: "",                  // string, optional, maximum length 1000 characters
   allocation: {
     status: "",               // string, optional, must match either 'In Service', 'Out of Service - Planned', 'Out of Service - Unplanned', 'Parked', 'Pending' or 'Sold'
     operator: "",             // string, optional, must match an existing Employee
