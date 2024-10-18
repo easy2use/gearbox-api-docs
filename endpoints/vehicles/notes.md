@@ -17,11 +17,9 @@ Please note:
 <br>
   
 - id
-- vehicle_id
-- fleet_number
-- registration
 - user
 - comment
+- created_at
 </details>
 
 ### Request
@@ -43,7 +41,8 @@ Authorization: Bearer $ACCESS_TOKEN
       "fleet_number": "FLT123",
       "registration": "145ATG", 
       "user": "Jane Doe",
-      "comment": "Vehicle note"
+      "comment": "Vehicle note",
+      "created_at": "2024-10-18T13:00:53.867+11:00"
     }
   ]
 }
@@ -104,9 +103,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles/123/
 --header "Content-Type: application/json" \
 --header "Authorization: Bearer 333" \
 --data '{
-    "note": {
-      "user": "Jane Doe",
-      "comment": "Vehicle note"
-    }
+    "user": "Jane Doe",
+    "comment": "Vehicle note"
   }'
 ```
