@@ -487,7 +487,7 @@ Keys not present in the payload will not be cleared
 
 ## Create purchase order documents
 
-`POST /public/v1/purchase_orders/:id/documents` creates a document attaching it to a provided purchase order `:id`.
+`POST /public/v1/purchase_order/:id/documents` creates a document attaching it to a provided purchase order `:id`.
 
 Please note:
 
@@ -499,7 +499,7 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/purchase_orders/1/documents?name=image.png
+URL: https://api.gearbox.com.au/public/v1/purchase_order/1/documents?name=image.png
 Method: POST
 Content-Type: image/png
 Content-Length: 123
@@ -528,7 +528,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request POST 'https://api.gearbox.com.au/public/v1/purchase_orders/1/documents?name=image.png' \
+curl --location --request POST 'https://api.gearbox.com.au/public/v1/purchase_order/1/documents?name=image.png' \
 --header 'Content-Type: image/png' \
 --header 'Content-Length: 123' \
 --header 'Accept: application/json' \
