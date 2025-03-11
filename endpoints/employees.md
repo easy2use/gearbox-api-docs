@@ -35,7 +35,6 @@ Please note:
 - licence_category
 - subcontractor
 - sub_abn
-- sub_company
 - emp_notes
 - terminated
 - email
@@ -47,6 +46,7 @@ Please note:
 - spare4
 - created_at
 - updated_at
+- contractors.name
 - groups.name
 - sub_groups.name
 - types.name
@@ -84,7 +84,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "licence_category": "LR",
       "subcontractor": false,
       "sub_abn": "ABC123",
-      "sub_company": "Tims Mowing",
+      "contractor": "Tims Mowing",
       "notes": "test notes",
       "terminated": "true",
       "email": "john.smith@email.com.au",
@@ -164,11 +164,11 @@ Authorization: Bearer $ACCESS_TOKEN
   licence_category: "",   // string, optional, maximum length 50 characters
   subcontractor: "",      // string, optional
   sub_abn: "",            // string, optional, maximum length 15 characters
-  sub_company: "",        // string, optional, maximum length 45 characters
   spare1: "",             // string, optional, maximum length 255 characters
   spare2: "",             // string, optional, maximum length 255 characters
   spare3: "",             // string, optional, maximum length 255 characters
   spare4: "",             // string, optional, maximum length 255 characters
+  contractor: "",         // string, optional, must match existing Contractor
   vehicle_group: "",      // string, optional, must match existing Vehicle Group
   vehicle_sub_group: "",  // string, optional, must match existing Vehicle Sub Group
   vehicle_type: "",       // string, optional, must match existing Vehicle Type
@@ -218,7 +218,6 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/employees \
       "licence_category": "test category",
       "subcontractor": true,
       "sub_abn": "123ABC",
-      "sub_company": "test company",
       "notes": "test notes",
       "email": "test_employee@email.com",
       "next_of_kin": "test kin",
@@ -227,6 +226,7 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/employees \
       "spare2": "example spare 2",
       "spare3": "example spare 3",
       "spare4": "example spare 4",
+      "contractor": "Tims mowing",
       "vehicle_group": "Sydney",
       "vehicle_sub_group": "Penrith",
       "vehicle_type": "Forklift"
@@ -273,11 +273,11 @@ Authorization: Bearer $ACCESS_TOKEN
   licence_category: "",   // string, optional, maximum length 50 characters
   subcontractor: "",      // string, optional
   sub_abn: "",            // string, optional, maximum length 15 characters
-  sub_company: "",        // string, optional, maximum length 45 characters
   spare1: "",             // string, optional, maximum length 255 characters
   spare2: "",             // string, optional, maximum length 255 characters
   spare3: "",             // string, optional, maximum length 255 characters
   spare4: "",             // string, optional, maximum length 255 characters
+  contractor: "",         // string, optional, must match existing Contractor
   vehicle_group: "",      // string, optional, must match existing Vehicle Group
   vehicle_sub_group: "",  // string, optional, must match existing Vehicle Sub Group
   vehicle_type: "",       // string, optional, must match existing Vehicle Type
@@ -328,7 +328,7 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/employees/62
       "licence_category": "test category",
       "subcontractor": true,
       "sub_abn": "123ABC",
-      "sub_company": "test company",
+      "contractor": "Tims mowing",
       "notes": "test notes",
       "email": "test_employee@email.com",
       "next_of_kin": "test kin",
