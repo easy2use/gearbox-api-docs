@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "e99eedeb-7ab3-48fa-bd66-7a7ab224adc5",
+		"_postman_id": "33b46bce-f418-44fe-833f-d3bc03061cad",
 		"name": "Gearbox API (PROD)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26619500"
+		"_exporter_id": "2105485"
 	},
 	"item": [
 		{
-			"name": "Oauth token",
+			"name": "Token - Client Credentials Grant",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -42,7 +42,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://api.gearbox.com.au/oauth/token",
+					"raw": "https://api.gearbox.com.au/oauth/token?grant_type=client_credentials&client_id=&client_secret=&business_token=",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -53,6 +53,176 @@
 					"path": [
 						"oauth",
 						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "business_token",
+							"value": "",
+							"description": "Found in Gearbox under Settings->Integrations->Gearbox"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token - Refresh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<CLIENT ID>",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "<SECRET>",
+							"type": "text"
+						},
+						{
+							"key": "business_token",
+							"value": "<BUSINESS TOKEN>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/oauth/token?grant_type=refresh_token&client_id=&client_secret=&refresh_token=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token"
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "refresh_token",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token - Authorisation code",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<CLIENT ID>",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "<SECRET>",
+							"type": "text"
+						},
+						{
+							"key": "business_token",
+							"value": "<BUSINESS TOKEN>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.gearbox.com.au/oauth/token?grant_type=authorization_code&code&client_id=&client_secret=&redirect_uri=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "code",
+							"value": null,
+							"description": "Returned from \"Authorisation Code Grant\""
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "redirect_uri",
+							"value": ""
+						}
 					]
 				}
 			},
@@ -341,6 +511,108 @@
 						{
 							"key": "filter",
 							"value": "created_at gt 2023-09-25T13:23:34"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorisation Code Grant",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:1234",
+							"type": "string"
+						},
+						{
+							"key": "state",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://api.gearbox.com.au/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://api.gearbox.com.au/oauth/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.gearbox.com.au/oauth/authorize?response_type=code&client_id=&client_secret=&redirect_uri=http://localhost:1234&state=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"gearbox",
+						"com",
+						"au"
+					],
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"description": "Created by Gearbox support"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:1234"
+						},
+						{
+							"key": "state",
+							"value": "",
+							"description": "Random state value generated"
 						}
 					]
 				}
