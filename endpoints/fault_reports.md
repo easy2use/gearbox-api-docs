@@ -121,11 +121,11 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/fault_repor
 	"fleet_number": "PM01",
 	"created_at": "2021-10-01 12:00:00",
 	"employee": "John Smith",
-  "employee_number": "7",
+    "employee_number": "7",
 	"fail_reason": "Broken",
 	"notes": "Some notes",
-  "odometer_open": 5,
-  "hours_open": 6
+    "odometer_open": 5,
+    "hours_open": 6
 }'
 ```
 
@@ -187,10 +187,10 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/fault_report
 	"fleet_number": "PM01",
 	"created_at": "2021-10-01 12:00:00",
 	"employee": "John Smith",
-  "employee_number": "7",
+    "employee_number": "7",
 	"fail_reason": "Broken",
 	"notes": "Some notes",
-  "odometer_open": 5,
-  "hours_open": 6
+    "odometer_open": 5,
+    "hours_open": 6
 }'
 ```
