@@ -86,8 +86,8 @@ Authorization: Bearer $ACCESS_TOKEN
   employee: “”,         // string, required, if a match is not found then it is stored as a string
   employee_number: “”,  // string, optional, if there are multiple employees with the same name you may use this field to specify your search
   fail_reason: “”,      // string, optional, maximum 256 characters
-  notes: “”             // string, optional, maximum 500 characters
-  odometer_open: “”     // integer, optional
+  notes: “”,            // string, optional, maximum 500 characters
+  odometer_open: “”,    // integer, optional
   hours_open: “”        // integer, optional
 }
 ```
@@ -153,8 +153,6 @@ Authorization: Bearer $ACCESS_TOKEN
   employee_number: “”,  // string, optional, if there are multiple employees with the same name you may use this field to specify your search
   fail_reason: “”,      // string, optional, maximum 256 characters
   notes: “”             // string, optional, maximum 500 characters
-  odometer_open: “”     // integer, optional
-  hours_open: “”        // integer, optional
 }
 ```
 
@@ -189,8 +187,6 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/fault_report
 	"employee": "John Smith",
     "employee_number": "7",
 	"fail_reason": "Broken",
-	"notes": "Some notes",
-    "odometer_open": 5,
-    "hours_open": 6
+	"notes": "Some notes"
 }'
 ```
