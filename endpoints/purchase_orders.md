@@ -25,6 +25,7 @@ Please note:
 * approved_date
 * reference_number
 * supplier
+* supplier_code
 * invoice_number
 * invoice_date
 * instructions
@@ -95,6 +96,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "tyre_number": 123,
       "other_number": 8844,
       "supplier": "Trucks R Us",
+      "supplier_code": "DEF345",
       "general_ledger_code": "ABC123 - PO Code",
       "actual_cost": 165.0,
       "actual_tax": 15.0,
