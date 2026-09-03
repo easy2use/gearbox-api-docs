@@ -19,7 +19,7 @@ Authorization: Bearer $ACCESS_TOKEN
 
 {
   fleet_number: "",       // string, required, must match existing fleet number in system
-  completed_at: "",       // datetime, required, format: yyyy-mm-dd hh:mm:ss
+  completed_at: "",       // datetime, required, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
   employee: "",           // string, required, if a match is not found then it is stored as a string
   employee_number: “”,    // string, optional, if there are multiple employees with the same name you may use this field to specify your search
   odometer: "",           // integer, optional
