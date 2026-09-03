@@ -183,8 +183,8 @@ Authorization: Bearer $ACCESS_TOKEN
       cost: "",               // float, optional, format: 100.00
       invoice: "",            // string, optional, maximum 45 characters
       invoice_date: "",       // date, optional, format: 'yyyy-mm-dd'
-      date_scheduled: "",     // datetime, optional, format: yyyy-mm-dd hh:mm
-      date_scheduled_end: "", // datetime, optional, format: yyyy-mm-dd hh:mm
+      date_scheduled: "",     // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
+      date_scheduled_end: "", // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
       general_ledger_code: "",// string, optional, if a general ledger code match is not found than an error is thrown
       parts: [                // array, optional, size must be less than or equal to 5
         {

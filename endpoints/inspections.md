@@ -143,8 +143,8 @@ Authorization: Bearer $ACCESS_TOKEN
   invoice: "",             // string, optional, maximum 45 characters
   invoice_date: "",        // date, optional, format: 'yyyy-mm-dd'
   location: "",            // string, optional, maximum 50 characters
-  date_scheduled: "",      // datetime, optional, format: yyyy-mm-dd hh:mm
-  date_scheduled_end: "",  // datetime, optional, format: yyyy-mm-dd hh:mm
+  date_scheduled: "",      // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
+  date_scheduled_end: "",  // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
   site: "",                // string, optional, if a site match is not found than an error is thrown
   general_ledger_code: "", // string, optional, if a general ledger code match is not found than an error is thrown
   repairer: ""             // string, optional, if a repairers name or code match is not found than an error is thrown
