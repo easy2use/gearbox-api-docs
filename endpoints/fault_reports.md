@@ -21,6 +21,7 @@ Please note:
 - created_at
 - notes
 - employee
+- employee_number
 - fail_reason
 - archived
 </details>
@@ -43,6 +44,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "fleet_number": "FLT123", 
       "created_at": "2023-06-21T09:01:09.276+10:00", 
       "notes": "Found oil pooled below asset",
+      "employee_number": 7, 
       "employee": "John Smith", 
       "fail_reason": "Oil leaking", 
       "archived": false
@@ -80,7 +82,7 @@ Authorization: Bearer $ACCESS_TOKEN
   fleet_number: “”,     // string, required, must match existing fleet number in system
   created_at: “”,       // datetime, required, format: yyyy-mm-dd hh:mm:ss
   employee: “”,         // string, required, if a match is not found then it is stored as a string
-  employee_number: “”,  // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+  employee_number: “”,  // integer, optional, if there are multiple employees with the same name you may use this field to specify your search
   fail_reason: “”,      // string, optional, maximum 256 characters
   notes: “”             // string, optional, maximum 500 characters
 }
@@ -115,7 +117,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/fault_repor
 	"fleet_number": "PM01",
 	"created_at": "2021-10-01 12:00:00",
 	"employee": "John Smith",
-  "employee_number": "7",
+  "employee_number": 7,
 	"fail_reason": "Broken",
 	"notes": "Some notes"
 }'
@@ -142,7 +144,7 @@ Authorization: Bearer $ACCESS_TOKEN
   fleet_number: “”,     // string, required, must match existing fleet number in system
   created_at: “”,       // datetime, required, format: yyyy-mm-dd hh:mm:ss
   employee: “”,         // string, required, if a match is not found then it is stored as a string
-  employee_number: “”,  // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+  employee_number: “”,  // integer, optional, if there are multiple employees with the same name you may use this field to specify your search
   fail_reason: “”,      // string, optional, maximum 256 characters
   notes: “”             // string, optional, maximum 500 characters
 }
@@ -177,7 +179,7 @@ curl --location --request PATCH http://api.gearbox.com.au/public/v1/fault_report
 	"fleet_number": "PM01",
 	"created_at": "2021-10-01 12:00:00",
 	"employee": "John Smith",
-  "employee_number": "7",
+  "employee_number": 7,
 	"fail_reason": "Broken",
 	"notes": "Some notes"
 }'
