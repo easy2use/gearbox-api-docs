@@ -20,6 +20,7 @@ Please note:
 - expiry_date
 - medical_number
 - employee
+- employee_number
 - medical_date
 - medical_type
 - supplier
@@ -42,6 +43,7 @@ Authorization: Bearer $ACCESS_TOKEN
     {
       "id": 5678,
       "medical_number": 321,
+      "employee_number": 12345,
       "employee": "John Smith",
       "medical_type": "Standard Medical",
       "medical_date": "2026-01-01",
@@ -84,7 +86,7 @@ Authorization: Bearer $ACCESS_TOKEN
 
 {
     employee: "",          // string, required, if a match is not found then an error is thrown
-    employee_number: "",   // string, optional, if there are multiple employees with the same name you may use this field to specify your search
+    employee_number: "",   // integer, optional, if there are multiple employees with the same name you may use this field to specify your search
     medical_type: "",      // string, required, if a match is not found then an error is thrown
     medical_date: "",      // date, required, format: 'yyyy-mm-dd'
     expiry_date: "",       // date, required, format: 'yyyy-mm-dd'
@@ -122,7 +124,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/medicals' \
 --header 'Authorization: Bearer $ACCESS_TOKEN' \
 --data-raw '{
     "employee": "John Smith",
-    "employee_number": "12345",
+    "employee_number": 12345,
     "medical_type": "Standard Medical",
     "medical_date": "2026-01-01",
     "expiry_date": "2026-12-01",
