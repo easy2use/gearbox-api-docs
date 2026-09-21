@@ -41,6 +41,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Repairers](endpoints/repairers.md)
 - [Vehicle notes](endpoints/vehicles/notes.md)
 - [Medicals](endpoints/medicals.md)
+- [Trainings](endpoints/trainings.md)
 - [Vehicle Inspection Types](endpoints/vehicle_inspection_types.md)
 
 ## Pagination
