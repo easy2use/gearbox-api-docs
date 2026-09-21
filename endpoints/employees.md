@@ -50,6 +50,13 @@ Please note:
 - groups.name
 - sub_groups.name
 - types.name
+- prestart_assets.current_vehicle_id
+- prestart_assets.trailer1_id
+- prestart_assets.trailer2_id
+- prestart_assets.trailer3_id
+- prestart_assets.trailer4_id
+- prestart_assets.trailer5_id
+- prestart_assets.trailer6_id
 </details>
 
 ### Request
@@ -110,7 +117,44 @@ Authorization: Bearer $ACCESS_TOKEN
         {
           "name": "Fridge"
         }
-      ]
+      ],
+      "prestart_assets": {
+        "current_vehicle": {
+          "fleet_number": "ABC123",
+          "registration": "DEF456",
+          "id": 10,
+        },
+        "trailer1": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        },
+        "trailer2": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        },
+        "trailer3": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        },
+        "trailer4": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        },
+        "trailer5": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        },
+        "trailer6": {
+          "fleet_number": null,
+          "registration": null,
+          "id": null
+        }
+      }
     }
   ]
 }
@@ -172,6 +216,19 @@ Authorization: Bearer $ACCESS_TOKEN
   vehicle_group: "",      // string, optional, must match existing Vehicle Group
   vehicle_sub_group: "",  // string, optional, must match existing Vehicle Sub Group
   vehicle_type: "",       // string, optional, must match existing Vehicle Type
+  prestart_assets: {      // optional, use this to set the vehicles an employee will have selected when logging into Prestart
+    current_vehicle: {
+      fleet_number: "",   // string, optional, must match existing Vehicle by fleet number
+      registration: "",   // string, optional, must match existing Vehicle by registration
+      id:                 // int, optional, must match existing Vehicle by ID
+    },
+    trailer1: {
+      fleet_number: "",   // string, optional, must match existing Vehicle by fleet number
+      registration: "",   // string, optional, must match existing Vehicle by registration
+      id:                 // int, optional, must match existing Vehicle by ID
+    }
+    // trailer2-6 follows same format as trailer1
+  }
 }
 ```
 
@@ -281,6 +338,19 @@ Authorization: Bearer $ACCESS_TOKEN
   vehicle_group: "",      // string, optional, must match existing Vehicle Group
   vehicle_sub_group: "",  // string, optional, must match existing Vehicle Sub Group
   vehicle_type: "",       // string, optional, must match existing Vehicle Type
+  prestart_assets: {      // optional, use this to set the vehicles an employee will have selected when logging into Prestart
+    current_vehicle: {
+      fleet_number: "",   // string, optional, must match existing Vehicle by fleet number
+      registration: "",   // string, optional, must match existing Vehicle by registration
+      id:                 // int, optional, must match existing Vehicle by ID
+    },
+    trailer1: {
+      fleet_number: "",   // string, optional, must match existing Vehicle by fleet number
+      registration: "",   // string, optional, must match existing Vehicle by registration
+      id:                 // int, optional, must match existing Vehicle by ID
+    }
+    // trailer2-6 follows same format as trailer1
+  }
 }
 ```
 
