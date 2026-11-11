@@ -129,7 +129,7 @@ Authorization: Bearer $ACCESS_TOKEN
   group: "",            // string, optional, must match existing Vehicle Group
   approved: "",         // boolean, optional, defaults to false
   code: "",             // string, optional, maximum length 50 characters
-  emails: ""            // array, optional, comma seperated list of valid emails
+  emails: ""            // array, optional, comma separated list of valid emails
 }
 ```
 
@@ -194,7 +194,7 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/repairers/
+URL: https://api.gearbox.com.au/public/v1/repairers/:id
 Method: PATCH
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
@@ -219,7 +219,7 @@ Authorization: Bearer $ACCESS_TOKEN
   group: "",            // string, optional, must match existing Vehicle Group
   approved: "",         // boolean, optional, defaults to false
   code: "",             // string, optional, maximum length 50 characters
-  emails: ""            // array, optional, comma seperated list of valid emails
+  emails: ""            // array, optional, comma separated list of valid emails
 }
 ```
 
