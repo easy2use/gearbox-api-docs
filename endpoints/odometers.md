@@ -23,7 +23,11 @@ Please note:
 - date
 - number
 - odometer
+- odometer_visual_reading
+- odometer_offset_used
 - hours
+- hours_visual_reading
+- hours_offset_used
 - created_at
 - updated_at
 </details>
@@ -40,7 +44,7 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "mileages": [
+  "odometers": [
     {
       "id": 123,
       "fleet_number": "PM01",
@@ -48,7 +52,11 @@ Authorization: Bearer $ACCESS_TOKEN
       "date": "2021-01-01",
       "number": 45,
       "odometer": 1000,
+      "odometer_visual_reading": 0,
+      "odometer_offset_used": 0,
       "hours": 10,
+      "hours_visual_reading": 0,
+      "hours_offset_used": 0,
       "created_at": "2021-01-01T10:00:00.000+11:00",
       "updated_at": "2021-01-01T10:00:00.000+11:00"
     }
@@ -85,8 +93,8 @@ Authorization: Bearer $ACCESS_TOKEN
   fleet_number: "", // string, required if registration is blank, must match existing fleet number in the system
   registration: "", // string, required if fleet_number is blank, must match existing registration in the system
   date: "",         // date, required, format: 'yyyy-mm-dd'
-  odometer: 0,      // integer, required if hours is blank
-  hours: 0          // integer, required if odometer is blank
+  odometer: 0,      // integer, required if hours is blank, must provide the visual usage reading of the odometer
+  hours: 0          // integer, required if odometer is blank, must provide the visual usage reading for hours
 }
 ```
 
@@ -202,8 +210,8 @@ Authorization: Bearer $ACCESS_TOKEN
     fleet_number: "", // string, optional, maximum length 12 characters, must match an existing fleet number
     registration: "", // string, optional, maximum length 12 characters, must match an existing registration
     date: "",         // date, optional, format: 'yyyy-mm-dd'
-    odometer: 0,      // integer, optional
-    hours: 0          // integer, optional
+    odometer: 0,      // integer, optional, must provide the visual usage reading of the odometer
+    hours: 0          // integer, optional, must provide the visual usage reading for hours
   }
 }
 ```
