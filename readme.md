@@ -23,27 +23,34 @@ To make a request for all endpoints you must include the OAuth 2.0 access token 
 curl -H "Authorization: Bearer $ACCESS_TOKEN"
 ```
 
-### Endpoints
+### Standard Endpoints
 
-- [Vehicles](endpoints/vehicles.md)
-- [Prestarts](endpoints/prestarts.md)
-- [Fault Reports](endpoints/fault_reports.md)
-- [Services](endpoints/services.md)
-- [Tyres](endpoints/tyres.md)
-- [Repairs](endpoints/repairs.md)
-- [Odometers](endpoints/odometers.md)
-- [Inspections](endpoints/inspections.md)
-- [Contractors](endpoints/contractors.md)
-- [Employees](endpoints/employees.md)
-- [Vehicle Groups](endpoints/vehicle_groups.md)
-- [Sites](endpoints/sites.md)
-- [Purchase Orders](endpoints/purchase_orders.md)
-- [Repairers](endpoints/repairers.md)
-- [Vehicle notes](endpoints/vehicles/notes.md)
-- [Medicals](endpoints/medicals.md)
-- [Trainings](endpoints/trainings.md)
-- [Vehicle Inspection Types](endpoints/vehicle_inspection_types.md)
-- [Documents](endpoints/documents.md)
+- [Vehicles](standard_endpoints/vehicles.md)
+- [Vehicle notes](standard_endpoints/vehicles/notes.md)
+- [Vehicle Inspection Types](standard_endpoints/vehicle_inspection_types.md)
+- [Prestarts](standard_endpoints/prestarts.md)
+- [Fault Reports](standard_endpoints/fault_reports.md)
+- [Services](standard_endpoints/services.md)
+- [Tyres](standard_endpoints/tyres.md)
+- [Repairs](standard_endpoints/repairs.md)
+- [Odometers](standard_endpoints/odometers.md)
+- [Inspections](standard_endpoints/inspections.md)
+- [Contractors](standard_endpoints/contractors.md)
+- [Employees](standard_endpoints/employees.md)
+- [Vehicle Groups](standard_endpoints/vehicle_groups.md)
+- [Sites](standard_endpoints/sites.md)
+- [Purchase Orders](standard_endpoints/purchase_orders.md)
+- [Repairers](standard_endpoints/repairers.md)
+- [Medicals](standard_endpoints/medicals.md)
+- [Trainings](standard_endpoints/trainings.md)
+- [Documents](standard_endpoints/documents.md)
+
+### Premium Endpoints
+
+These endpoints provide the same functionality as the standard endpoints, while also offering additional features. These endpoints require Premium API access that must be enabled by Gearbox Support and their usage will incur additional charges. Usage is billed at $3 AUD per asset per month.
+
+- [Prestarts](premium_endpoints/prestarts.md)
+- [Fault Reports](premium_endpoints/fault_reports.md)
 
 ## Pagination
 
