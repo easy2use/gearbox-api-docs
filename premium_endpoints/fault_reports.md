@@ -30,7 +30,6 @@ Authorization: $ACCESS_TOKEN
   notes: "",              // string, optional, maximum 500 characters
   odometer_open: "",      // integer, optional
   hours_open: "",         // integer, optional
-  signature: "",          // string, optional, deprecated Base64-encoded signature
   employee_signature: {   // object, optional
     name: "",             // string, optional, filename
     base64: ""            // string, optional, Base64 data URI; use base64
