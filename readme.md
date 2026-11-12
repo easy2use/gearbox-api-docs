@@ -43,6 +43,7 @@ curl -H "Authorization: Bearer $ACCESS_TOKEN"
 - [Repairers](standard_endpoints/repairers.md)
 - [Medicals](standard_endpoints/medicals.md)
 - [Trainings](standard_endpoints/trainings.md)
+- [Documents](standard_endpoints/documents.md)
 
 ### Premium Endpoints
 
