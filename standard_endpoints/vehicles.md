@@ -54,7 +54,6 @@ Please note:
 - engine_capacity
 - gearbox
 - sold
-- service_group
 - group
 - sub_group
 - type
@@ -267,8 +266,8 @@ curl --location --request POST http://api.gearbox.com.au/public/v1/vehicles \
       "unregistered": false,
       "vin": "1A2B3C4D5E6F",
       "build_date": "2018",
-      "spare01": "1234",
-      "spare02": "5678",
+      "spare1": "1234",
+      "spare2": "5678",
       "group": "SA",
       "sub_group": "Adelaide"
     }' 

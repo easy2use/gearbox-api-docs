@@ -1,12 +1,12 @@
-# Repairs
+# Tyres
 
-- [Get repairs](#get-repairs)
-- [Create repairs](#create-repairs)
-- [Create repair documents](#create-repair-documents)
+- [Get tyres](#get-tyres)
+- [Create tyres](#create-tyres)
+- [Create tyre documents](#create-tyre-documents)
 
-## Get repairs
+## Get tyres
 
-`GET /public/v1/repairs` retrieves a [paginated list](../readme.md/#pagination) of repairs.
+`GET /public/v1/tyres` retrieves a [paginated list](../readme.md/#pagination) of tyres.
 
 Please note:
 
@@ -21,7 +21,7 @@ Please note:
 - fault
 - fleet_number
 - registration
-- repair_number
+- tyre_number
 - reported_to
 - reported_by
 - date_reported
@@ -35,32 +35,32 @@ Please note:
 - location
 - created_at
 - site
-- repair_items.repair_types.type
-- repair_items.problem
-- repair_items.notes
-- repair_items.repairer_notes
-- repair_items.invoice
-- repair_items.cost
-- repair_items.tax
-- repair_items.date_closed
-- repair_items.odometer_closed
-- repair_items.hours_closed
-- repair_items.status
-- repair_items.priority
-- repair_items.repairers.name
-- repair_items.repairers.code
-- repair_items.assigned_user
-- repair_items.general_ledger_code
-- repair_items.parts.part_number
-- repair_items.parts.quantity
-- repair_items.parts.each
-- repair_items.parts.total
+- tyre_items.tyre_types.type
+- tyre_items.problem
+- tyre_items.notes
+- tyre_items.repairer_notes
+- tyre_items.invoice
+- tyre_items.cost
+- tyre_items.tax
+- tyre_items.date_closed
+- tyre_items.odometer_closed
+- tyre_items.hours_closed
+- tyre_items.status
+- tyre_items.priority
+- tyre_items.repairers.name
+- tyre_items.repairers.code
+- tyre_items.assigned_user
+- tyre_items.general_ledger_code
+- tyre_items.parts.part_number
+- tyre_items.parts.quantity
+- tyre_items.parts.each
+- tyre_items.parts.total
 </details>
 
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/repairs
+URL: https://api.gearbox.com.au/public/v1/tyres
 Method: GET
 Authorization: Bearer $ACCESS_TOKEN
 ```
@@ -69,11 +69,11 @@ Authorization: Bearer $ACCESS_TOKEN
 
 ```JSON
 {
-  "repairs":
+  "tyres":
   [
     {
       "id": "10654825",
-      "repair_number": 1,
+      "tyre_number": 1,
       "date_reported": "2023-05-31",
       "fault_number": "F-123",
       "fleet_number": "CBO97M",
@@ -89,7 +89,7 @@ Authorization: Bearer $ACCESS_TOKEN
       "hours_open": 500,
       "created_at": "2023-06-01T09:50:56.154+10:00",
       "site": "Example Site",
-      "repair_items":
+      "tyre_items":
       [
         {
           "tax": 10.0,
@@ -97,7 +97,7 @@ Authorization: Bearer $ACCESS_TOKEN
           "notes": "example notes",
           "status": "open",
           "invoice": "NAI14943509",
-          "problem": "example repair item problem",
+          "problem": "example tyre item problem",
           "priority": "important",
           "repairers": [
                           {
@@ -107,11 +107,11 @@ Authorization: Bearer $ACCESS_TOKEN
                         ],
           "date_closed": "2023-06-01",
           "hours_closed": 1000,
-          "repair_types": [
-                            {
-                              "type": "Broken Valve"
-                            }
-                          ],
+          "tyre_types": [
+                          {
+                            "type": "Broken Valve"
+                          }
+                        ],
           "assigned_user": "Alex Honnold",
           "repairer_notes": "example notes",
           "odometer_closed": 1000,
@@ -134,24 +134,24 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request GET 'https://api.gearbox.com.au/public/v1/repairs' \
+curl --location --request GET 'https://api.gearbox.com.au/public/v1/tyres' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN'
 ```
 
-## Create repairs
+## Create tyres
 
-`POST /public/v1/repairs` creates a new repair with the provided information.
+`POST /public/v1/tyres` creates a new tyre with the provided information.
 
 Please note:
 
-- Content-Type header `Content-Type: application/json` is required when POSTing repairs into Gearbox.
+- Content-Type header `Content-Type: application/json` is required when POSTing tyres into Gearbox.
 - Snake case object keys are required.
 
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/repairs
+URL: https://api.gearbox.com.au/public/v1/tyres
 Method: POST
 Content-Type: application/json
 Authorization: Bearer $ACCESS_TOKEN
@@ -166,11 +166,11 @@ Authorization: Bearer $ACCESS_TOKEN
   defect_number: "",          // string, optional
   purchase_order: "",         // string, optional, maximum 20 characters
   job_number: "",             // string, optional, maximum 20 characters
-  repair_items: [               // array, required, size must be less than or equal to 5
+  tyre_items: [               // array, required, size must be less than or equal to 5
     {
-      repair_types: [           // array, required, size must be less than or equal to 5
+      tyre_types: [           // array, required, size must be less than or equal to 5
         {
-          type_label: "",     // string, required, maximum 45 characters, will create a new repair type if a match is not found
+          type_label: "",     // string, required, maximum 45 characters, will create a new tyre type if a match is not found
         }
       ]
       problem: "",            // string, optional, maximum 500 characters
@@ -219,14 +219,14 @@ Authorization: Bearer $ACCESS_TOKEN
 ```JSON
 {
   "id": 123,
-  "repair_item_ids": [123, 124]
+  "tyre_item_ids": [123, 124]
 }
 ```
 
 ###### Example
 
 ```
-curl --location --request POST 'https://api.gearbox.com.au/public/v1/repairs' \
+curl --location --request POST 'https://api.gearbox.com.au/public/v1/tyres' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer $ACCESS_TOKEN' \
@@ -240,16 +240,16 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/repairs' \
     "defect_number": "D#2",
     "purchase_order": "PO#2",
     "job_number": "J#2",
-    "repair_items": [
+    "tyre_items": [
       {
-        "repair_types": [
+        "tyre_types": [
           {
-            "type_label": "Turbo"
+            "type_label": "Puncture"
           }
-        ]
-        "problem": "Blown turbo",
-        "cause": "Lack of maintenance",
-        "solution": "Replace turbo",
+        ],
+        "problem": "Puncture",
+        "cause": "Nail in tyre",
+        "solution": "Replace tyre",
         "status": "open",
         "date_closed": "",
         "hours_closed": "",
@@ -262,7 +262,7 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/repairs' \
         "general_ledger_code": "5000-05",
         "parts": [
           {
-            "part_number": "New turbo",
+            "part_number": "New tyre",
             "quantity": 1,
             "each": 100.50
           }
@@ -278,9 +278,9 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/repairs' \
 }'
 ```
 
-## Create repair documents
+## Create tyre documents
 
-`POST /public/v1/repair_item/:id/documents` creates a document attaching it to a provided repair item `:id`.
+`POST /public/v1/tyre_item/:id/documents` creates a document attaching it to a provided tyre item `:id`.
 
 Please note:
 
@@ -292,7 +292,7 @@ Please note:
 ### Request
 
 ```
-URL: https://api.gearbox.com.au/public/v1/repair_item/1/documents?name=image.png
+URL: https://api.gearbox.com.au/public/v1/tyre_item/1/documents?name=image.png
 Method: POST
 Content-Type: image/png
 Content-Length: 123
@@ -321,7 +321,7 @@ Authorization: Bearer $ACCESS_TOKEN
 ###### Example
 
 ```
-curl --location --request POST 'https://api.gearbox.com.au/public/v1/repair_item/1/documents?name=image.png' \
+curl --location --request POST 'https://api.gearbox.com.au/public/v1/tyre_item/1/documents?name=image.png' \
 --header 'Content-Type: image/png' \
 --header 'Content-Length: 123' \
 --header 'Accept: application/json' \
