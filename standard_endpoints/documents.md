@@ -5,7 +5,23 @@
 
 ## Get documents
 
-`GET /public/v1/:parent/:id/documents` retrieves a [paginated list](../readme.md/#pagination) of documents associated with the `:parent`.
+`GET /public/v1/:parent/:id/documents` retrieves a [paginated list](../readme.md/#pagination) of documents associated with the `:parent` and `:id`.
+
+Allowed parents are:
+
+- `vehicle`
+- `vehicle_image`
+- `service`
+- `repair_item`
+- `tyre_item`
+- `prestart`
+- `odometer`
+- `medical`
+- `training`
+- `employee`
+- `inspection`
+- `contractor`
+- `purchase_order`
 
 Note: 
 - the page length for documents is 5
@@ -49,7 +65,7 @@ curl --location --request GET 'https://api.gearbox.com.au/public/v1/repair_item/
 
 ## Create documents
 
-`POST /public/v1/:parent/:id/documents` creates a document attaching it to a provided `:parent` `:id`.
+`POST /public/v1/:parent/:id/documents` creates a document attaching it to a provided `:parent` and `:id`.
 
 Allowed parents are:
 
@@ -59,7 +75,7 @@ Allowed parents are:
 - `repair_item`
 - `tyre_item`
 - `prestart`
-- `mileage`
+- `odometer`
 - `medical`
 - `training`
 - `employee`
