@@ -119,7 +119,7 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",                // string, optional
   code: "",                 // string, optional, maximum length 20 characters
   position: "",             // string, optional
-  group: "",                // string, optional, must match existing Vehicle Group
+  group: "",                // string, optional, must match existing Vehicle Group name or code
   sub_group: ""             // string, optional, must match existing Vehicle Sub Group
 }
 ```
@@ -200,7 +200,7 @@ Authorization: Bearer $ACCESS_TOKEN
   notes: "",            // string, optional
   code: "",             // string, optional, maximum length 20 characters
   position: "",         // string, optional
-  group: "",            // string, optional, must match existing Vehicle Group
+  group: "",            // string, optional, must match existing Vehicle Group name or code
   sub_group: ""         // string, optional, must match existing Vehicle Sub Group
 }
 ```

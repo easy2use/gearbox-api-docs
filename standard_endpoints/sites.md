@@ -102,7 +102,7 @@ Authorization: Bearer $ACCESS_TOKEN
   state: "",       // string, optional, maximum 255 characters
   postcode: "",    // string, optional, maximum 255 characters
   notes: "",       // string, optional, maximum 255 characters
-  group: "",       // string, optional, must matching existing Vehicle Group
+  group: "",       // string, optional, must match existing Vehicle Group name or code
   closed: "",      // boolean, optional
   vehicles: [      // array, optional, size must be less than or equal to 5
     {
@@ -183,7 +183,7 @@ Authorization: Bearer $ACCESS_TOKEN
   state: "",       // string, optional, maximum 255 characters
   postcode: "",    // string, optional, maximum 255 characters
   notes: "",       // string, optional, maximum 255 characters
-  group: "",       // string, optional, must matching existing Vehicle Group
+  group: "",       // string, optional, must match existing Vehicle Group name or code
   closed: "",      // boolean, optional
   vehicles: [      // array, optional, size must be less than or equal to 5
     {

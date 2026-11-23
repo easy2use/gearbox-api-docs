@@ -165,7 +165,7 @@ Authorization: Bearer $ACCESS_TOKEN
   bulk_receive_date: "",   // date, optional, format: 'yyyy-mm-dd'
   fleet_number: "",        // string, optional, must match existing fleet number in the system
   registration: "",        // string, optional, must match existing registration in the system
-  group: "",               // string, optional, must match existing Vehicle Group in the system
+  group: "",               // string, optional, must match existing Vehicle Group name or code in the system
   service_number: ,        // integer, optional, must match existing Service number in the system
   repair_number: ,         // integer, optional, must match existing Repair number in the system
   tyre_number: ,           // integer, optional, must match existing Tyre number in the system
@@ -301,7 +301,7 @@ Authorization: Bearer $ACCESS_TOKEN
   bulk_receive_date: "",   // date, optional, format: 'yyyy-mm-dd'
   fleet_number: "",        // string, optional, must match existing fleet number in the system
   registration: "",        // string, optional, must match existing registration in the system
-  group: "",               // string, optional, must match existing Vehicle Group in the system
+  group: "",               // string, optional, must match existing Vehicle Group name or code
   service_number: ,        // integer, optional, must match existing Service number in the system
   repair_number: ,         // integer, optional, must match existing Repair number in the system
   tyre_number: ,           // integer, optional, must match existing Tyre number in the system
