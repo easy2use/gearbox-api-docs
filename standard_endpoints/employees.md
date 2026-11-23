@@ -213,7 +213,7 @@ Authorization: Bearer $ACCESS_TOKEN
   spare3: "",             // string, optional, maximum length 255 characters
   spare4: "",             // string, optional, maximum length 255 characters
   contractor_name: "",    // string, optional, must match existing Contractor
-  vehicle_group: "",      // string, optional, must match existing Vehicle Group
+  vehicle_group: "",      // string, optional, must match existing Vehicle Group name or code
   vehicle_sub_group: "",  // string, optional, must match existing Vehicle Sub Group
   vehicle_type: "",       // string, optional, must match existing Vehicle Type
   prestart_assets: {      // optional, use this to set the vehicles an employee will have selected when logging into Prestart
