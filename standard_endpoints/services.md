@@ -250,6 +250,91 @@ curl --location --request POST 'https://api.gearbox.com.au/public/v1/services' \
 }'
 ```
 
+## Update services
+
+`PATCH /public/v1/services` updates the service with the provided `:id`.
+
+Please note:
+
+- Content-Type header `Content-Type: application/json` is required when PATCHing services into Gearbox.
+- Snake case object keys are required.
+
+### Request
+
+```
+URL: https://api.gearbox.com.au/public/v1/services/:id
+Method: PATCH
+Content-Type: application/json
+Authorization: Bearer $ACCESS_TOKEN
+
+{
+  fleet_number: "",         // string, required if registration is blank, must match existing fleet number in the system
+  registration: "",         // string, required if fleet_number is blank, must match existing registration in the system
+  service_type: "",         // character, required, values allowed: A, B, C, D, E
+  date_open: "",            // date, required, format: 'yyyy-mm-dd'
+  odometer_scheduled: "",   // integer, optional
+  hours_scheduled: "",      // integer, optional
+  jobcard_notes: "",        // string, optional, maximum 500 characters
+  repairer_notes: "",       // string, optional, maximum 500 characters
+  closed: "",               // boolean, required, true or false
+  date_closed: "",          // date, required if closed is true, format: 'yyyy-mm-dd'
+  hours_closed: "",         // integer, optional
+  odometer_closed: ""       // integer, optional
+  cost: "",                 // float, optional, format: 100.00
+  purchase_order: "",       // string, optional, maximum 20 characters
+  invoice: "",              // string, optional, maximum 45 characters
+  invoice_date: "",         // date, optional, format: 'yyyy-mm-dd'
+  location: "",             // string, optional, maximum 50 characters
+  date_scheduled: "",       // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
+  date_scheduled_end: "",   // datetime, optional, format: `yyyy-mm-dd hh:mm:ss +0000` - if timezone is not included it will be inferred from the businesses timezone
+  site: "",                 // string, optional, if a site match is not found than an error is thrown
+  general_ledger_code: "",  // string, optional, if a general ledger code match is not found than an error is thrown
+  parts: [                  // array, optional, size must be less than or equal to 5
+    {
+      part_number: "",      // string, required, if a part match is not found than an error is thrown
+      quantity: "",         // float, optional, format: 1.00
+      each: ""              // float, optional, format: 5.50
+    }
+  ],
+  repairers: [              // array, optional, size must be less than or equal to 5
+    {
+      name: "",             // string, required if code is blank, must match existing repairers name in the system
+      code: ""              // string, required if name is blank, must match existing repairers code in the system
+    }
+  ]
+}
+```
+
+### Response status codes:
+
+- 200: OK
+- 400: Bad Request
+- 401: Unauthorised
+- 403: Forbidden
+- 413: Request Entity Too Large
+- 415: Unsupported media type
+- 422: Unprocessable Entity
+
+### 200 - Successful response
+
+```JSON
+{
+  "id": 123
+}
+```
+
+###### Example
+
+```
+curl --location --request PATCH 'https://api.gearbox.com.au/public/v1/services/123' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer $ACCESS_TOKEN' \
+--data-raw '{
+    "jobcard_notes": "Windscreen wipers are loose"
+}'
+```
+
 ## Create service documents
 
 `POST /public/v1/service/:id/documents` creates a document attaching it to a provided service `:id`.
