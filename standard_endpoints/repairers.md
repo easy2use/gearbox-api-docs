@@ -126,7 +126,7 @@ Authorization: Bearer $ACCESS_TOKEN
   archived: "",         // boolean, optional, defaults to false
   repairer_only: "",    // boolean, optional, defaults to false
   supplier_only: "",    // boolean, optional, defaults to false
-  group: "",            // string, optional, must match existing Vehicle Group
+  group: "",            // string, optional, must match existing Vehicle Group name or code
   approved: "",         // boolean, optional, defaults to false
   code: "",             // string, optional, maximum length 50 characters
   emails: ""            // array, optional, comma separated list of valid emails
@@ -216,7 +216,7 @@ Authorization: Bearer $ACCESS_TOKEN
   archived: "",         // boolean, optional, defaults to false
   repairer_only: "",    // boolean, optional, defaults to false
   supplier_only: "",    // boolean, optional, defaults to false
-  group: "",            // string, optional, must match existing Vehicle Group
+  group: "",            // string, optional, must match existing Vehicle Group name or code
   approved: "",         // boolean, optional, defaults to false
   code: "",             // string, optional, maximum length 50 characters
   emails: ""            // array, optional, comma separated list of valid emails

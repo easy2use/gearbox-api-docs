@@ -180,7 +180,7 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   registration_state: "",     // string, optional, must be either ACT, FED, NSW, QLD, NT, SA, TAS, VIC, or WA
   unregistered: "",           // boolean, optional, defaults to false
-  group: "",                  // string, optional, must match existing Vehicle Group
+  group: "",                  // string, optional, must match existing Vehicle Group name or code
   sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
@@ -297,7 +297,7 @@ Authorization: Bearer $ACCESS_TOKEN
   registration_due_date: "",  // date, optional, format 'yyyy-mm-dd'
   registration_state: "",     // string, optional, maximum length 5 characters
   unregistered: "",           // boolean, optional, defaults to false
-  group: "",                  // string, optional, must match existing Vehicle Group
+  group: "",                  // string, optional, must match existing Vehicle Group name or code
   sub_group: "",              // string, optional, must match existing Vehicle Group
   type: "",                   // string, optional, must match existing Vehicle Type
   make: "",                   // string, optional, must match existing Vehicle Make
